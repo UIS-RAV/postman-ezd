@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "331e131d-fa92-45da-9d74-52bbf5662177",
+    "name": "Zasilanie SD - OLCOM E",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "OLCOM ePUAP",
+      "id": "c2ee4c42-2cd7-445e-a3dc-a28705657064",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja-podatkowa-RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Marta Rafał"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "OLCOM"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Marta & Rafał OLCOM"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "82032304996"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Osiedle Białe Górki"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "26"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Świebodzice"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - edoręczenie lub ePUAP jeśli złożone oświadczenie",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "8785a960-a1e7-4e36-9888-0b893d44a646",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "fa647235-da47-478f-ad46-613161e4eb3d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

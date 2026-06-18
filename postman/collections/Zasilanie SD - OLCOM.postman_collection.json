@@ -1,0 +1,2448 @@
+{
+  "info": {
+    "_postman_id": "43577bb8-1178-45f8-abdf-71b3e941537f",
+    "name": "Zasilanie SD - OLCOM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Skipa R3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "87827219-5372-4c78-bb69-919216ed3db0",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "7db46b9c-e602-4104-9502-8b67d19f8189",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Olena"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Olena Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "50123190247"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Cicha"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Decyzja nr 3 z dnia 2025.01.13 w sprawie  wymiaru podatku od nieruchomości za 2025 rok"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "R3 - PO0001 - N - OLENA SKIBA",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "11/2022MO",
+              "type": "default",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "default",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_ulica]",
+              "value": "Cicha",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_domu]",
+              "value": "10",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_mieszkania]",
+              "value": "10",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_kod_pocztowy]",
+              "value": "58-160",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_miasto]",
+              "value": "{{miasto}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Radosław Przediębiorczy NIP",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "87827219-5372-4c78-bb69-919216ed3db0",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "id": "63e5a33b-b9bf-4a5f-b2b8-632e4f57394d",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Radosław"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Przedsiębiorczy"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Radosław Przedsiębiorczy"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": "8378618026"
+            },
+            {
+              "key": "dokument[0][interesant][0][regon]",
+              "value": "192520377",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Firmowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Decyzja nr 3 z dnia 2022.05.12 w sprawie  wymiaru podatku od nieruchomości za 2022 rok"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "R3 - PO0001 - N - Przedsiębiorca Radosław",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "11/2025MO",
+              "type": "default"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "default",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_ulica]",
+              "value": "Towarowa",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_domu]",
+              "value": "3",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_mieszkania]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_kod_pocztowy]",
+              "value": "58-160",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_miasto]",
+              "value": "{{miasto}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Skipa R3 KORES",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "5d16e7f2-0932-4596-84d3-b0967714832a",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "id": "2252a7a5-1f65-41a4-bd19-cd6626e4662b",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Olena"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Olena Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "50123190247"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Zameldowania-Szczecin"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "87-305"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Szczecin"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R3",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "1/2025",
+              "type": "default"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "default",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_ulica]",
+              "value": "Korespondencyjna-Inna4",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_domu]",
+              "value": "40",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_mieszkania]",
+              "value": "40",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_kod_pocztowy]",
+              "value": "00-950",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_miasto]",
+              "value": "Warszawa",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Skipa R3 Podteczka",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "5d16e7f2-0932-4596-84d3-b0967714832a",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "id": "4a4df11c-4483-43f7-ac54-cb88f78d02da",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Olena"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Olena Skiba"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "50123190247"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Ciernie"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "3"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3121"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R3",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "6/2025",
+              "type": "default"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "default",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Krupa R3",
+      "id": "d9be1579-ba5a-413f-a47f-553dff9ac395",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          },
+          {
+            "key": "ezdtoken",
+            "value": "{{ezd_token}}",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Franciszek"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Krupak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Franciszek Krupak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "18250909671"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Jarzębinowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Opoczno"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Decyzja nr 4 z dnia 2025.01.13 w sprawie  wymiaru podatku od nieruchomości za 2025 rok"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "R3 - PO0001 - N - FRANCISZEK KRUPA",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "1/2025MO",
+              "type": "default"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LeśniakR3",
+      "id": "aec7fd2b-5485-424a-ac19-aa8008c22ef6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Adrian"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Leśniak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Adrian Leśniak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "80070917712"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Nowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "24"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Opoczno"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Decyzja nr 5 z dnia 2025.01.13 w sprawie  wymiaru podatku od nieruchomości za 2025 rok"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "5/2025",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "R3 - PO0001 - N - ADRIAN LEŚNIAK",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "3/2025RO",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bąk",
+      "id": "46e4425c-2346-4d73-b051-e377b4be59f2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Zofia"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Bąk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Zofia Bąk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "84112802987"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Palisadowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "24"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-300"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Wałbrzych"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Decyzja nr 5 z dnia 2025.01.13 w sprawie  wymiaru podatku od nieruchomości za 2025 rok"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "5/2025",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "PUH - PO0001 - N - Zofia Bąk",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][id_decyzji]",
+              "value": "3/2025RO",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Olejnik R1",
+      "id": "98758198-8af6-49d0-b091-e5440ac6dfcc",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Sylwester"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Olejnik"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Sylwester Olejnik"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "59051957656"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Osiedle Białe Górki"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "20"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R1",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RTF",
+      "id": "a51e49ed-5a83-4cef-a2ab-8da0832277c9",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/rtf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.rtf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTBcZGVmZjBcbm91aWNvbXBhdFxkZWZsYW5nMTA0NXtcZm9u\ndHRibHtcZjBcZm5pbFxmY2hhcnNldDAgQ2FsaWJyaTt9e1xmMVxmbmlsXGZjaGFyc2V0MjM4IENh\nbGlicmk7fX0NCntcKlxnZW5lcmF0b3IgUmljaGVkMjAgMTAuMC4xODM2Mn1cdmlld2tpbmQ0XHVj\nMSANClxwYXJkXHNhMjAwXHNsMjc2XHNsbXVsdDFcZjBcZnMyMlxsYW5nMjFccGFyDQpcZjFcbGFu\nZzEwNDUgI3M9c3VwZV9hZG1pXzEqaj0wMDAzKm49U0QgWVlZIDEyMyNcZjBcbGFuZzIxXHBhcg0K\nXGYxXGxhbmcxMDQ1IHRlc3Rvd3kgZG9rdW1lbnRcZjBcbGFuZzIxXHBhcg0KfQ0KIA=="
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Damian"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Kostrzewski"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Damian Kostrzewski"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "72081951676"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Testowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "20"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "62-025"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Śmigiel"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R1",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Kruk R1",
+      "id": "f5394c04-ad73-449a-9637-52b5a6a68244",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Anatol"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Kruk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Anatol Kruk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "39040549178"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Ciernie"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "145"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R1",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Kopeć R2",
+      "id": "c94fdb05-b03a-4a46-bacb-e566833e4d4e",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Eleonora"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Kopeć"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Eleonora Kopeć"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "87012633844"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Sezamkowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R2",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Zubiel R2",
+      "id": "ac790381-1fd9-4679-bd8b-0f5706947d2c",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Zygfryd"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Zubiel"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Zygrfyd Zubiel"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "87012633845"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Sezamkowa"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R2",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Mikołajczyk OS",
+      "id": "1f9c97e6-8389-4b6f-95fd-df383a3f213a",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Walentyna"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Mikołajczyk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Walentyna Mikołajczyk"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "98031431588"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": ""
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - odbiór sobisty",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "OLCOM ePUAP",
+      "id": "fd07dec0-0dd1-4699-85b2-1c4680b8cabf",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja-podatkowa-RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "MARTA RAFAŁ"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "OLCOM"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "MARTA RAFAŁ OLCOM"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": "8841834334",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "82032304996"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Niedzielna"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "46"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - edoręczenie lub ePUAP jeśli złożone oświadczenie",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_ulica]",
+              "value": "Łódzka",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_domu]",
+              "value": "1",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_mieszkania]",
+              "value": "10",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_kod_pocztowy]",
+              "value": "90-145",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_miasto]",
+              "value": "Łódź",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RO - edo",
+      "id": "2b4fb006-b5fb-427b-9a24-ffe0b97cec61",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja-podatkowa-RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Rafał"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Oleśkiewicz"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Rafał Oleśkiewicz"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "75031212795"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Biale Górki"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "20"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "Świebodzice"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "{{jrwa}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - edoręczenie lub ePUAP jeśli złożone oświadczenie",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][username]",
+              "value": "{{user_name}}",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_ulica]",
+              "value": "Łódzka",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_domu]",
+              "value": "1",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_nr_mieszkania]",
+              "value": "10",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_kod_pocztowy]",
+              "value": "90-145",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][interesant][0][kores_miasto]",
+              "value": "Łódź",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bednarska R2",
+      "id": "4ece2b18-bfe7-4bfb-bb7c-e04ecaf5aee5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Małgorzata"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Bednarska"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Małgorzata Bednarska"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "59011150505"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Zimny Dwór"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "10"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "1"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "58-160"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - R2",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Wóźniak PP",
+      "id": "89c157b7-b222-4fce-8914-1a6df32f3f62",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument[0][plik][0][typ]",
+              "value": "application/pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][nazwa]",
+              "value": "Decyzja podatkowa RM.pdf"
+            },
+            {
+              "key": "dokument[0][plik][0][tresc]",
+              "value": "{{tresc}}"
+            },
+            {
+              "key": "dokument[0][interesant][0][imie]",
+              "value": "Żaneta"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwisko]",
+              "value": "Woźniak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nazwa]",
+              "value": "Żaneta Woźniak"
+            },
+            {
+              "key": "dokument[0][interesant][0][nip]",
+              "value": ""
+            },
+            {
+              "key": "dokument[0][interesant][0][pesel]",
+              "value": "98051085246"
+            },
+            {
+              "key": "dokument[0][interesant][0][ulica]",
+              "value": "Różana"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_domu]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][nr_mieszkania]",
+              "value": "2"
+            },
+            {
+              "key": "dokument[0][interesant][0][kod_pocztowy]",
+              "value": "22-831"
+            },
+            {
+              "key": "dokument[0][interesant][0][miasto]",
+              "value": "{{miasto}}"
+            },
+            {
+              "key": "szablon",
+              "value": "DF_1",
+              "disabled": true
+            },
+            {
+              "key": "dokument[0][zawartosc][sprawa_jrwa]",
+              "value": "3125"
+            },
+            {
+              "key": "dokument[0][zawartosc][stanowisko]",
+              "value": "{{stanowisko}}"
+            },
+            {
+              "key": "dokument[0][zawartosc][szablon]",
+              "value": "DF_1"
+            },
+            {
+              "key": "dokument[0][zawartosc][termin_zakonczenia_sprawy]",
+              "value": "14"
+            },
+            {
+              "key": "dokument[0][zawartosc][opis]",
+              "value": "Opis dokumentu"
+            },
+            {
+              "key": "dokument[0][zawartosc][numer_decyzji]",
+              "value": "Numer decyzji",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][tytul]",
+              "value": "Nakaz płatniczy - poczta",
+              "type": "text"
+            },
+            {
+              "key": "dokument[0][zawartosc][user_id]",
+              "value": "{{userid}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/dokument/dodaj-dokument",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "dokument",
+            "dodaj-dokument"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "8785a960-a1e7-4e36-9888-0b893d44a646",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "fa647235-da47-478f-ad46-613161e4eb3d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

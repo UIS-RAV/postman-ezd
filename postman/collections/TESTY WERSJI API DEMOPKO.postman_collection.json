@@ -1,0 +1,3154 @@
+{
+  "info": {
+    "_postman_id": "93a9920e-6ae3-42e0-b12e-95faeb932fad",
+    "name": "TESTY WERSJI API DEMOPKO",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST - sprawa własna SD - CM",
+      "item": [
+        {
+          "name": "nowa-sprawa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b0d82aa3-48c0-451b-b062-f60daa885262",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"sprawa_id_post_resp\", jsonData.data.id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "27740285-5076-4d44-bdd9-77f64bd58a1e",
+                "exec": [
+                  "const moment = require('moment');\r",
+                  "// Uzyskaj aktualną datę i odejmij 1 dzień\r",
+                  "const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');\r",
+                  "// Uzyskaj aktualną datę i dodaj 14 dni000000\r",
+                  "const futureDate = moment().add(14, 'days').format('YYYY-MM-DD');\r",
+                  "// Przypisz wartość do zmiennej środowiskowej lub globalnej\r",
+                  "pm.environment.set(\"date_yesterday\", yesterday);\r",
+                  "pm.environment.set(\"future_date\", futureDate);\r",
+                  "const date = new Date();\r",
+                  "pm.environment.set(\"date_today\", date.toISOString().split('T')[0]);\r",
+                  "\r",
+                  "const now = new Date();\r",
+                  "\r",
+                  "const data =\r",
+                  "    now.getFullYear() + \"-\" +\r",
+                  "    String(now.getMonth() + 1).padStart(2, \"0\") + \"-\" +\r",
+                  "    String(now.getDate()).padStart(2, \"0\");\r",
+                  "\r",
+                  "pm.environment.set(\r",
+                  "    \"tytul_sprawy_data\",\r",
+                  "    `Sprawa założona dnia ${data}`\r",
+                  ");"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "0674236a-1b67-4794-8106-f14ef7f7fe73",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "10953",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "{{tytul_sprawy_data}}"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "{{jrwa}}"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "{{future_date}}"
+                },
+                {
+                  "key": "stanowisko_symbol",
+                  "value": "{{komorka_org}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dodaj_dokument_przychodzacy",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "18265",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "rok",
+                  "value": "2026",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/nowa-sprawa",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowa-sprawa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nowy-dokument-w-sprawie",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c07bbb2f-60e6-444a-b41a-c267c6b56331",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_post_resp\", jsonData.data.dokument_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "f6cbdbf9-bd83-40c9-9c49-4f22db288cb4",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "Pismo w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "to jest uwaga",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_opis",
+                  "value": "to jest opis",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/nowy-dokument-w-sprawie?sprawa_id={{sprawa_id_post_resp}}&dokument_tytul=Dokument w sprawie&typ_dokumentu=pismo",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowy-dokument-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "starosta_2",
+                  "disabled": true
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument w sprawie"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "676a7541-924e-4a73-bbd4-660e0014f3b0",
+                "exec": [
+                  "const now = new Date();\r",
+                  "\r",
+                  "const fileName =\r",
+                  "    `Zalacznik_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}-${String(now.getSeconds()).padStart(2,'0')}.pdf`;\r",
+                  "\r",
+                  "pm.environment.set(\"file_name\", fileName);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "38ef889f-a351-44d0-a88b-3054a33502d6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "file_content",
+                  "value": "{{tresc}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "{{file_name}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "nazwa_zalacznika.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c8d685c-3f0b-42db-80bb-965e0f02b897",
+                "exec": [
+                  "function generateRandomPesel() {\r",
+                  "    // Generowanie losowej daty urodzenia\r",
+                  "    const start = new Date(1900, 0, 1).getTime();\r",
+                  "    const end = new Date(2099, 11, 31).getTime();\r",
+                  "    const birthDate = new Date(start + Math.random() * (end - start));\r",
+                  "    // Ekstrakcja daty urodzenia\r",
+                  "    const year = birthDate.getFullYear();\r",
+                  "    let month = birthDate.getMonth() + 1;\r",
+                  "    const day = birthDate.getDate();\r",
+                  "    // Dostosowanie miesiąca do PESEL\r",
+                  "    if (year >= 2000) {\r",
+                  "        month += 20;\r",
+                  "    } else if (year >= 2100) {\r",
+                  "        month += 40;\r",
+                  "    } else if (year >= 2200) {\r",
+                  "        month += 60;\r",
+                  "    } else if (year >= 1800) {\r",
+                  "        month += 80;\r",
+                  "    }\r",
+                  "    // Składanie pierwszych 10 cyfr PESEL\r",
+                  "    const yearShort = year % 100;\r",
+                  "    const peselWithoutChecksum = `${yearShort.toString().padStart(2, '0')}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}${Math.floor(Math.random() * 9999).toString().padStart(4, '0')}`;\r",
+                  "    // Wagi do obliczenia sumy kontrolnej\r",
+                  "    const weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];\r",
+                  "    let checksum = 0;\r",
+                  "    // Obliczanie sumy kontrolnej\r",
+                  "    for (let i = 0; i < weights.length; i++) {\r",
+                  "        checksum += parseInt(peselWithoutChecksum[i]) * weights[i];\r",
+                  "    }\r",
+                  "    checksum = (10 - (checksum % 10)) % 10;\r",
+                  "    // Składanie pełnego numeru PESEL\r",
+                  "    return `${peselWithoutChecksum}${checksum}`;\r",
+                  "}\r",
+                  "// Generowanie losowego PESEL\r",
+                  "const randomPesel = generateRandomPesel();\r",
+                  "// Przypisanie PESEL do zmiennej środowiskowej\r",
+                  "pm.environment.set(\"random_pesel\", randomPesel);\r",
+                  "\r",
+                  "// Przypisanie wartości do zmiennej środowiskowej\r",
+                  "// pm.environment.set(\"random_imie\", pm.variables.replaceIn('{{$randomFirstName}}'));\r",
+                  "// pm.environment.set(\"random_nazwisko\", pm.variables.replaceIn('{{$randomLastName}}'));\r",
+                  "\r",
+                  "const imiona = [\r",
+                  "    \"Jan\", \"Piotr\", \"Krzysztof\", \"Michał\", \"Tomasz\", \"Paweł\", \"Andrzej\",\r",
+                  "    \"Marcin\", \"Mateusz\", \"Jakub\", \"Łukasz\", \"Adam\", \"Marek\", \"Grzegorz\",\r",
+                  "    \"Dariusz\", \"Rafał\", \"Kamil\", \"Patryk\", \"Damian\", \"Bartosz\",\r",
+                  "    \"Wojciech\", \"Maciej\", \"Szymon\", \"Mikołaj\", \"Karol\", \"Sebastian\",\r",
+                  "    \"Artur\", \"Norbert\", \"Przemysław\", \"Daniel\", \"Robert\", \"Tadeusz\",\r",
+                  "    \"Jerzy\", \"Henryk\", \"Zbigniew\", \"Jacek\", \"Ryszard\", \"Cezary\",\r",
+                  "    \"Anna\", \"Katarzyna\", \"Agnieszka\", \"Magdalena\", \"Ewa\", \"Joanna\",\r",
+                  "    \"Małgorzata\", \"Monika\", \"Aleksandra\", \"Natalia\", \"Paulina\",\r",
+                  "    \"Karolina\", \"Patrycja\", \"Marta\", \"Justyna\", \"Weronika\",\r",
+                  "    \"Kinga\", \"Barbara\", \"Elżbieta\", \"Zofia\", \"Emilia\", \"Julia\",\r",
+                  "    \"Maria\", \"Hanna\", \"Oliwia\", \"Wiktoria\", \"Laura\", \"Alicja\",\r",
+                  "    \"Antonina\", \"Gabriela\", \"Lena\", \"Dominika\", \"Sylwia\"\r",
+                  "];\r",
+                  "\r",
+                  "const nazwiska = [\r",
+                  "    \"Nowak\", \"Kowalski\", \"Wiśniewski\", \"Wójcik\", \"Kowalczyk\",\r",
+                  "    \"Kamiński\", \"Lewandowski\", \"Zieliński\", \"Szymański\", \"Woźniak\",\r",
+                  "    \"Dąbrowski\", \"Kozłowski\", \"Jankowski\", \"Mazur\", \"Krawczyk\",\r",
+                  "    \"Piotrowski\", \"Grabowski\", \"Nowakowski\", \"Pawłowski\", \"Michalski\",\r",
+                  "    \"Król\", \"Wieczorek\", \"Wróbel\", \"Jabłoński\", \"Dudek\",\r",
+                  "    \"Stępień\", \"Jaworski\", \"Malinowski\", \"Adamczyk\", \"Walczak\",\r",
+                  "    \"Zając\", \"Górski\", \"Pawlak\", \"Rutkowski\", \"Sikora\",\r",
+                  "    \"Olszewski\", \"Baran\", \"Tomaszewski\", \"Pietrzak\", \"Marciniak\",\r",
+                  "    \"Kubiak\", \"Lis\", \"Jakubowski\", \"Wasilewski\", \"Kaczmarek\",\r",
+                  "    \"Kalinowski\", \"Bąk\", \"Piątek\", \"Chmielewski\", \"Sawicki\",\r",
+                  "    \"Czarnecki\", \"Kucharski\", \"Kopeć\", \"Kurek\", \"Borkowski\",\r",
+                  "    \"Kania\", \"Mazurek\", \"Kłos\", \"Bednarek\", \"Wilk\",\r",
+                  "    \"Głowacki\", \"Sokołowski\", \"Tomczak\", \"Kaczor\", \"Urban\",\r",
+                  "    \"Mucha\", \"Majewski\", \"Szczepański\", \"Błaszczyk\", \"Cieślak\",\r",
+                  "    \"Mikołajczyk\", \"Rogowski\", \"Domański\", \"Sobczak\", \"Szulc\",\r",
+                  "    \"Kowalik\", \"Krajewski\", \"Zalewski\", \"Olejniczak\", \"Kołodziej\",\r",
+                  "    \"Kubiak\", \"Włodarczyk\", \"Bielawski\", \"Rybak\", \"Pawelski\",\r",
+                  "    \"Ratajczak\", \"Gajewski\", \"Musiał\", \"Sadowski\", \"Czarna\",\r",
+                  "    \"Brzeziński\", \"Matuszewski\", \"Kędzierski\", \"Puchała\", \"Kurek\"\r",
+                  "];\r",
+                  "\r",
+                  "const randomImie = imiona[Math.floor(Math.random() * imiona.length)];\r",
+                  "const randomNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_imie\", randomImie);\r",
+                  "pm.environment.set(\"random_nazwisko\", randomNazwisko);\r",
+                  "\r",
+                  "// Generowanie losowych adresów\r",
+                  "const adresy = [\r",
+                  "    {\r",
+                  "        miasto: \"Świebodzice\",\r",
+                  "        kod: \"58-160\",\r",
+                  "        ulice: [\"Wałbrzyska\", \"Piłsudskiego\", \"Mickiewicza\", \"Sienkiewicza\", \"Żeromskiego\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Wrocław\",\r",
+                  "        kod: \"50-001\",\r",
+                  "        ulice: [\"Legnicka\", \"Grabiszyńska\", \"Powstańców Śląskich\", \"Hallera\", \"Kościuszki\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Warszawa\",\r",
+                  "        kod: \"00-001\",\r",
+                  "        ulice: [\"Marszałkowska\", \"Puławska\", \"Aleje Jerozolimskie\", \"Mokotowska\", \"Targowa\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Kraków\",\r",
+                  "        kod: \"30-001\",\r",
+                  "        ulice: [\"Dietla\", \"Karmelicka\", \"Opolska\", \"Lubicz\", \"Starowiślna\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Poznań\",\r",
+                  "        kod: \"60-001\",\r",
+                  "        ulice: [\"Głogowska\", \"Dąbrowskiego\", \"Hetmańska\", \"Grunwaldzka\", \"Bukowska\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Gdańsk\",\r",
+                  "        kod: \"80-001\",\r",
+                  "        ulice: [\"Kartuska\", \"Grunwaldzka\", \"Długa\", \"Słowackiego\", \"Kołobrzeska\"]\r",
+                  "    }\r",
+                  "];\r",
+                  "\r",
+                  "const adres = adresy[Math.floor(Math.random() * adresy.length)];\r",
+                  "const ulica = adres.ulice[Math.floor(Math.random() * adres.ulice.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_miasto\", adres.miasto);\r",
+                  "pm.environment.set(\"random_kod\", adres.kod);\r",
+                  "pm.environment.set(\"random_ulica\", ulica);\r",
+                  "pm.environment.set(\"random_nr_domu\", Math.floor(Math.random() * 200) + 1);\r",
+                  "pm.environment.set(\"random_nr_mieszkania\", Math.floor(Math.random() * 100) + 1);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "61df97a8-2cff-4193-83e9-6c41f2413ec8",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "{{random_imie}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "{{random_nazwisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "{{random_imie}} {{random_nazwisko}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "{{random_pesel}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "{{random_ulica}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "{{random_nr_domu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "{{random_nr_mieszkania}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "{{random_kod}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "{{random_miasto}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "edoreczenia_adres[0]",
+                  "value": "AE:PL-18375-10021-DTBRC-21",
+                  "description": "skrzynka ADE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "description": "olcom",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "MARTA RAFAŁ",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "OLCOM",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "82032304996",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "33068c6a-865d-4092-bf5a-f059306851ed",
+      "description": "Zapisywanie danych"
+    },
+    {
+      "name": "POST - rejestracja dokumentu WS",
+      "item": [
+        {
+          "name": "dodaj-dokument-przychodzacy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "53f62074-eeff-4e0a-9d28-4c66359b5e34",
+                "exec": [
+                  "const moment = require('moment');\r",
+                  "// Uzyskaj aktualną datę i odejmij 1 dzień\r",
+                  "const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');\r",
+                  "// Uzyskaj aktualną datę i dodaj 14 dni000000\r",
+                  "const futureDate = moment().add(14, 'days').format('YYYY-MM-DD');\r",
+                  "// Przypisz wartość do zmiennej środowiskowej lub globalnej\r",
+                  "pm.environment.set(\"date_yesterday\", yesterday);\r",
+                  "pm.environment.set(\"future_date\", futureDate);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "44936516-be8c-4431-9a76-9478bc6a1d4b",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_post_resp\", jsonData.data.dokument_id);\r",
+                  "pm.environment.set(\"sprawa_id_post_resp\", jsonData.data.sprawa_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "4dec2bef-6ed8-4a52-afec-eb0f78df0396",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument przychodzący - wniosek",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo",
+                  "type": "text"
+                },
+                {
+                  "key": "data_wplywu",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "data_widniejaca_na_pismie",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_czas_otrzymania",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "data_nadania",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "utworz_sprawe",
+                  "value": "0",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "Sprawa na podstawie dokumentu przychodzącego",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0531",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "{{future_date}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "brak uwag",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "KO",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-dokument-przychodzacy",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-dokument-przychodzacy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "676a7541-924e-4a73-bbd4-660e0014f3b0",
+                "exec": [
+                  "const now = new Date();\r",
+                  "\r",
+                  "const fileName =\r",
+                  "    `Zalacznik_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}-${String(now.getSeconds()).padStart(2,'0')}.pdf`;\r",
+                  "\r",
+                  "pm.environment.set(\"file_name\", fileName);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "b22c1069-7b31-4a0f-9e4e-1bb1bf8571f2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "file_name2",
+                  "value": "Wniosek_{{$timestamp}}.pdf",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "{{tresc_wniosku}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "{{file_name}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "nazwa_zalacznika.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c8d685c-3f0b-42db-80bb-965e0f02b897",
+                "exec": [
+                  "function generateRandomPesel() {\r",
+                  "    // Generowanie losowej daty urodzenia\r",
+                  "    const start = new Date(1900, 0, 1).getTime();\r",
+                  "    const end = new Date(2099, 11, 31).getTime();\r",
+                  "    const birthDate = new Date(start + Math.random() * (end - start));\r",
+                  "    // Ekstrakcja daty urodzenia\r",
+                  "    const year = birthDate.getFullYear();\r",
+                  "    let month = birthDate.getMonth() + 1;\r",
+                  "    const day = birthDate.getDate();\r",
+                  "    // Dostosowanie miesiąca do PESEL\r",
+                  "    if (year >= 2000) {\r",
+                  "        month += 20;\r",
+                  "    } else if (year >= 2100) {\r",
+                  "        month += 40;\r",
+                  "    } else if (year >= 2200) {\r",
+                  "        month += 60;\r",
+                  "    } else if (year >= 1800) {\r",
+                  "        month += 80;\r",
+                  "    }\r",
+                  "    // Składanie pierwszych 10 cyfr PESEL\r",
+                  "    const yearShort = year % 100;\r",
+                  "    const peselWithoutChecksum = `${yearShort.toString().padStart(2, '0')}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}${Math.floor(Math.random() * 9999).toString().padStart(4, '0')}`;\r",
+                  "    // Wagi do obliczenia sumy kontrolnej\r",
+                  "    const weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];\r",
+                  "    let checksum = 0;\r",
+                  "    // Obliczanie sumy kontrolnej\r",
+                  "    for (let i = 0; i < weights.length; i++) {\r",
+                  "        checksum += parseInt(peselWithoutChecksum[i]) * weights[i];\r",
+                  "    }\r",
+                  "    checksum = (10 - (checksum % 10)) % 10;\r",
+                  "    // Składanie pełnego numeru PESEL\r",
+                  "    return `${peselWithoutChecksum}${checksum}`;\r",
+                  "}\r",
+                  "// Generowanie losowego PESEL\r",
+                  "const randomPesel = generateRandomPesel();\r",
+                  "// Przypisanie PESEL do zmiennej środowiskowej\r",
+                  "pm.environment.set(\"random_pesel\", randomPesel);\r",
+                  "\r",
+                  "// Przypisanie wartości do zmiennej środowiskowej\r",
+                  "// pm.environment.set(\"random_imie\", pm.variables.replaceIn('{{$randomFirstName}}'));\r",
+                  "// pm.environment.set(\"random_nazwisko\", pm.variables.replaceIn('{{$randomLastName}}'));\r",
+                  "\r",
+                  "const imiona = [\r",
+                  "    \"Jan\", \"Piotr\", \"Krzysztof\", \"Michał\", \"Tomasz\", \"Paweł\", \"Andrzej\",\r",
+                  "    \"Marcin\", \"Mateusz\", \"Jakub\", \"Łukasz\", \"Adam\", \"Marek\", \"Grzegorz\",\r",
+                  "    \"Dariusz\", \"Rafał\", \"Kamil\", \"Patryk\", \"Damian\", \"Bartosz\",\r",
+                  "    \"Wojciech\", \"Maciej\", \"Szymon\", \"Mikołaj\", \"Karol\", \"Sebastian\",\r",
+                  "    \"Artur\", \"Norbert\", \"Przemysław\", \"Daniel\", \"Robert\", \"Tadeusz\",\r",
+                  "    \"Jerzy\", \"Henryk\", \"Zbigniew\", \"Jacek\", \"Ryszard\", \"Cezary\",\r",
+                  "    \"Anna\", \"Katarzyna\", \"Agnieszka\", \"Magdalena\", \"Ewa\", \"Joanna\",\r",
+                  "    \"Małgorzata\", \"Monika\", \"Aleksandra\", \"Natalia\", \"Paulina\",\r",
+                  "    \"Karolina\", \"Patrycja\", \"Marta\", \"Justyna\", \"Weronika\",\r",
+                  "    \"Kinga\", \"Barbara\", \"Elżbieta\", \"Zofia\", \"Emilia\", \"Julia\",\r",
+                  "    \"Maria\", \"Hanna\", \"Oliwia\", \"Wiktoria\", \"Laura\", \"Alicja\",\r",
+                  "    \"Antonina\", \"Gabriela\", \"Lena\", \"Dominika\", \"Sylwia\"\r",
+                  "];\r",
+                  "\r",
+                  "const nazwiska = [\r",
+                  "    \"Nowak\", \"Kowalski\", \"Wiśniewski\", \"Wójcik\", \"Kowalczyk\",\r",
+                  "    \"Kamiński\", \"Lewandowski\", \"Zieliński\", \"Szymański\", \"Woźniak\",\r",
+                  "    \"Dąbrowski\", \"Kozłowski\", \"Jankowski\", \"Mazur\", \"Krawczyk\",\r",
+                  "    \"Piotrowski\", \"Grabowski\", \"Nowakowski\", \"Pawłowski\", \"Michalski\",\r",
+                  "    \"Król\", \"Wieczorek\", \"Wróbel\", \"Jabłoński\", \"Dudek\",\r",
+                  "    \"Stępień\", \"Jaworski\", \"Malinowski\", \"Adamczyk\", \"Walczak\",\r",
+                  "    \"Zając\", \"Górski\", \"Pawlak\", \"Rutkowski\", \"Sikora\",\r",
+                  "    \"Olszewski\", \"Baran\", \"Tomaszewski\", \"Pietrzak\", \"Marciniak\",\r",
+                  "    \"Kubiak\", \"Lis\", \"Jakubowski\", \"Wasilewski\", \"Kaczmarek\",\r",
+                  "    \"Kalinowski\", \"Bąk\", \"Piątek\", \"Chmielewski\", \"Sawicki\",\r",
+                  "    \"Czarnecki\", \"Kucharski\", \"Kopeć\", \"Kurek\", \"Borkowski\",\r",
+                  "    \"Kania\", \"Mazurek\", \"Kłos\", \"Bednarek\", \"Wilk\",\r",
+                  "    \"Głowacki\", \"Sokołowski\", \"Tomczak\", \"Kaczor\", \"Urban\",\r",
+                  "    \"Mucha\", \"Majewski\", \"Szczepański\", \"Błaszczyk\", \"Cieślak\",\r",
+                  "    \"Mikołajczyk\", \"Rogowski\", \"Domański\", \"Sobczak\", \"Szulc\",\r",
+                  "    \"Kowalik\", \"Krajewski\", \"Zalewski\", \"Olejniczak\", \"Kołodziej\",\r",
+                  "    \"Kubiak\", \"Włodarczyk\", \"Bielawski\", \"Rybak\", \"Pawelski\",\r",
+                  "    \"Ratajczak\", \"Gajewski\", \"Musiał\", \"Sadowski\", \"Czarna\",\r",
+                  "    \"Brzeziński\", \"Matuszewski\", \"Kędzierski\", \"Puchała\", \"Kurek\"\r",
+                  "];\r",
+                  "\r",
+                  "const randomImie = imiona[Math.floor(Math.random() * imiona.length)];\r",
+                  "const randomNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_imie\", randomImie);\r",
+                  "pm.environment.set(\"random_nazwisko\", randomNazwisko);\r",
+                  "\r",
+                  "// Generowanie losowych adresów\r",
+                  "const adresy = [\r",
+                  "    {\r",
+                  "        miasto: \"Świebodzice\",\r",
+                  "        kod: \"58-160\",\r",
+                  "        ulice: [\"Wałbrzyska\", \"Piłsudskiego\", \"Mickiewicza\", \"Sienkiewicza\", \"Żeromskiego\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Wrocław\",\r",
+                  "        kod: \"50-001\",\r",
+                  "        ulice: [\"Legnicka\", \"Grabiszyńska\", \"Powstańców Śląskich\", \"Hallera\", \"Kościuszki\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Warszawa\",\r",
+                  "        kod: \"00-001\",\r",
+                  "        ulice: [\"Marszałkowska\", \"Puławska\", \"Aleje Jerozolimskie\", \"Mokotowska\", \"Targowa\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Kraków\",\r",
+                  "        kod: \"30-001\",\r",
+                  "        ulice: [\"Dietla\", \"Karmelicka\", \"Opolska\", \"Lubicz\", \"Starowiślna\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Poznań\",\r",
+                  "        kod: \"60-001\",\r",
+                  "        ulice: [\"Głogowska\", \"Dąbrowskiego\", \"Hetmańska\", \"Grunwaldzka\", \"Bukowska\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Gdańsk\",\r",
+                  "        kod: \"80-001\",\r",
+                  "        ulice: [\"Kartuska\", \"Grunwaldzka\", \"Długa\", \"Słowackiego\", \"Kołobrzeska\"]\r",
+                  "    }\r",
+                  "];\r",
+                  "\r",
+                  "const adres = adresy[Math.floor(Math.random() * adresy.length)];\r",
+                  "const ulica = adres.ulice[Math.floor(Math.random() * adres.ulice.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_miasto\", adres.miasto);\r",
+                  "pm.environment.set(\"random_kod\", adres.kod);\r",
+                  "pm.environment.set(\"random_ulica\", ulica);\r",
+                  "pm.environment.set(\"random_nr_domu\", Math.floor(Math.random() * 200) + 1);\r",
+                  "pm.environment.set(\"random_nr_mieszkania\", Math.floor(Math.random() * 100) + 1);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "78bfa7cd-0670-48e3-8351-a0c5583e7dfd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "{{random_imie}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "{{random_nazwisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "{{random_imie}} {{random_nazwisko}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "{{random_pesel}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "{{random_ulica}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "{{random_nr_domu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "{{random_nr_mieszkania}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "{{random_kod}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "{{random_miasto}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "edoreczenia_adres[0]",
+                  "value": "AE:PL-18375-10021-DTBRC-21",
+                  "description": "skrzynka ADE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "description": "olcom",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "MARTA RAFAŁ",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "OLCOM",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "82032304996",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "2a189aec-1cc4-47ac-b393-2b26b992c8b0",
+      "description": "Zapisywanie danych"
+    },
+    {
+      "name": "POST - rejestracja dokumentu i sprawa JP",
+      "item": [
+        {
+          "name": "dodaj-dokument-przychodzacy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "53f62074-eeff-4e0a-9d28-4c66359b5e34",
+                "exec": [
+                  "const moment = require('moment');\r",
+                  "// Uzyskaj aktualną datę i odejmij 1 dzień\r",
+                  "const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');\r",
+                  "// Uzyskaj aktualną datę i dodaj 14 dni000000\r",
+                  "const futureDate = moment().add(14, 'days').format('YYYY-MM-DD');\r",
+                  "// Przypisz wartość do zmiennej środowiskowej lub globalnej\r",
+                  "pm.environment.set(\"date_yesterday\", yesterday);\r",
+                  "pm.environment.set(\"future_date\", futureDate);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "44936516-be8c-4431-9a76-9478bc6a1d4b",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_post_resp\", jsonData.data.dokument_id);\r",
+                  "pm.environment.set(\"sprawa_id_post_resp\", jsonData.data.sprawa_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "d0b82ec8-b39c-4b80-8998-b97e09d1cd9e",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument przychodzący - wniosek",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo",
+                  "type": "text"
+                },
+                {
+                  "key": "data_wplywu",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "data_widniejaca_na_pismie",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_czas_otrzymania",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "data_nadania",
+                  "value": "{{date_yesterday}}",
+                  "type": "text"
+                },
+                {
+                  "key": "utworz_sprawe",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "Sprawa na podstawie dokumentu przychodzącego",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0531",
+                  "type": "text"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "{{future_date}}",
+                  "type": "text"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "brak uwag",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "KJST",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-dokument-przychodzacy",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-dokument-przychodzacy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "676a7541-924e-4a73-bbd4-660e0014f3b0",
+                "exec": [
+                  "const now = new Date();\r",
+                  "\r",
+                  "const fileName =\r",
+                  "    `Zalacznik_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}-${String(now.getSeconds()).padStart(2,'0')}.pdf`;\r",
+                  "\r",
+                  "pm.environment.set(\"file_name\", fileName);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "1c92e1a6-ee3d-4fe9-828e-1a5362f2bb24",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "file_name2",
+                  "value": "Wniosek_{{$timestamp}}.pdf",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "{{tresc_wniosku}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "{{file_name}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "nazwa_zalacznika.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c8d685c-3f0b-42db-80bb-965e0f02b897",
+                "exec": [
+                  "function generateRandomPesel() {\r",
+                  "    // Generowanie losowej daty urodzenia\r",
+                  "    const start = new Date(1900, 0, 1).getTime();\r",
+                  "    const end = new Date(2099, 11, 31).getTime();\r",
+                  "    const birthDate = new Date(start + Math.random() * (end - start));\r",
+                  "    // Ekstrakcja daty urodzenia\r",
+                  "    const year = birthDate.getFullYear();\r",
+                  "    let month = birthDate.getMonth() + 1;\r",
+                  "    const day = birthDate.getDate();\r",
+                  "    // Dostosowanie miesiąca do PESEL\r",
+                  "    if (year >= 2000) {\r",
+                  "        month += 20;\r",
+                  "    } else if (year >= 2100) {\r",
+                  "        month += 40;\r",
+                  "    } else if (year >= 2200) {\r",
+                  "        month += 60;\r",
+                  "    } else if (year >= 1800) {\r",
+                  "        month += 80;\r",
+                  "    }\r",
+                  "    // Składanie pierwszych 10 cyfr PESEL\r",
+                  "    const yearShort = year % 100;\r",
+                  "    const peselWithoutChecksum = `${yearShort.toString().padStart(2, '0')}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}${Math.floor(Math.random() * 9999).toString().padStart(4, '0')}`;\r",
+                  "    // Wagi do obliczenia sumy kontrolnej\r",
+                  "    const weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];\r",
+                  "    let checksum = 0;\r",
+                  "    // Obliczanie sumy kontrolnej\r",
+                  "    for (let i = 0; i < weights.length; i++) {\r",
+                  "        checksum += parseInt(peselWithoutChecksum[i]) * weights[i];\r",
+                  "    }\r",
+                  "    checksum = (10 - (checksum % 10)) % 10;\r",
+                  "    // Składanie pełnego numeru PESEL\r",
+                  "    return `${peselWithoutChecksum}${checksum}`;\r",
+                  "}\r",
+                  "// Generowanie losowego PESEL\r",
+                  "const randomPesel = generateRandomPesel();\r",
+                  "// Przypisanie PESEL do zmiennej środowiskowej\r",
+                  "pm.environment.set(\"random_pesel\", randomPesel);\r",
+                  "\r",
+                  "// Przypisanie wartości do zmiennej środowiskowej\r",
+                  "// pm.environment.set(\"random_imie\", pm.variables.replaceIn('{{$randomFirstName}}'));\r",
+                  "// pm.environment.set(\"random_nazwisko\", pm.variables.replaceIn('{{$randomLastName}}'));\r",
+                  "\r",
+                  "const imiona = [\r",
+                  "    \"Jan\", \"Piotr\", \"Krzysztof\", \"Michał\", \"Tomasz\", \"Paweł\", \"Andrzej\",\r",
+                  "    \"Marcin\", \"Mateusz\", \"Jakub\", \"Łukasz\", \"Adam\", \"Marek\", \"Grzegorz\",\r",
+                  "    \"Dariusz\", \"Rafał\", \"Kamil\", \"Patryk\", \"Damian\", \"Bartosz\",\r",
+                  "    \"Wojciech\", \"Maciej\", \"Szymon\", \"Mikołaj\", \"Karol\", \"Sebastian\",\r",
+                  "    \"Artur\", \"Norbert\", \"Przemysław\", \"Daniel\", \"Robert\", \"Tadeusz\",\r",
+                  "    \"Jerzy\", \"Henryk\", \"Zbigniew\", \"Jacek\", \"Ryszard\", \"Cezary\",\r",
+                  "    \"Anna\", \"Katarzyna\", \"Agnieszka\", \"Magdalena\", \"Ewa\", \"Joanna\",\r",
+                  "    \"Małgorzata\", \"Monika\", \"Aleksandra\", \"Natalia\", \"Paulina\",\r",
+                  "    \"Karolina\", \"Patrycja\", \"Marta\", \"Justyna\", \"Weronika\",\r",
+                  "    \"Kinga\", \"Barbara\", \"Elżbieta\", \"Zofia\", \"Emilia\", \"Julia\",\r",
+                  "    \"Maria\", \"Hanna\", \"Oliwia\", \"Wiktoria\", \"Laura\", \"Alicja\",\r",
+                  "    \"Antonina\", \"Gabriela\", \"Lena\", \"Dominika\", \"Sylwia\"\r",
+                  "];\r",
+                  "\r",
+                  "const nazwiska = [\r",
+                  "    \"Nowak\", \"Kowalski\", \"Wiśniewski\", \"Wójcik\", \"Kowalczyk\",\r",
+                  "    \"Kamiński\", \"Lewandowski\", \"Zieliński\", \"Szymański\", \"Woźniak\",\r",
+                  "    \"Dąbrowski\", \"Kozłowski\", \"Jankowski\", \"Mazur\", \"Krawczyk\",\r",
+                  "    \"Piotrowski\", \"Grabowski\", \"Nowakowski\", \"Pawłowski\", \"Michalski\",\r",
+                  "    \"Król\", \"Wieczorek\", \"Wróbel\", \"Jabłoński\", \"Dudek\",\r",
+                  "    \"Stępień\", \"Jaworski\", \"Malinowski\", \"Adamczyk\", \"Walczak\",\r",
+                  "    \"Zając\", \"Górski\", \"Pawlak\", \"Rutkowski\", \"Sikora\",\r",
+                  "    \"Olszewski\", \"Baran\", \"Tomaszewski\", \"Pietrzak\", \"Marciniak\",\r",
+                  "    \"Kubiak\", \"Lis\", \"Jakubowski\", \"Wasilewski\", \"Kaczmarek\",\r",
+                  "    \"Kalinowski\", \"Bąk\", \"Piątek\", \"Chmielewski\", \"Sawicki\",\r",
+                  "    \"Czarnecki\", \"Kucharski\", \"Kopeć\", \"Kurek\", \"Borkowski\",\r",
+                  "    \"Kania\", \"Mazurek\", \"Kłos\", \"Bednarek\", \"Wilk\",\r",
+                  "    \"Głowacki\", \"Sokołowski\", \"Tomczak\", \"Kaczor\", \"Urban\",\r",
+                  "    \"Mucha\", \"Majewski\", \"Szczepański\", \"Błaszczyk\", \"Cieślak\",\r",
+                  "    \"Mikołajczyk\", \"Rogowski\", \"Domański\", \"Sobczak\", \"Szulc\",\r",
+                  "    \"Kowalik\", \"Krajewski\", \"Zalewski\", \"Olejniczak\", \"Kołodziej\",\r",
+                  "    \"Kubiak\", \"Włodarczyk\", \"Bielawski\", \"Rybak\", \"Pawelski\",\r",
+                  "    \"Ratajczak\", \"Gajewski\", \"Musiał\", \"Sadowski\", \"Czarna\",\r",
+                  "    \"Brzeziński\", \"Matuszewski\", \"Kędzierski\", \"Puchała\", \"Kurek\"\r",
+                  "];\r",
+                  "\r",
+                  "const randomImie = imiona[Math.floor(Math.random() * imiona.length)];\r",
+                  "const randomNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_imie\", randomImie);\r",
+                  "pm.environment.set(\"random_nazwisko\", randomNazwisko);\r",
+                  "\r",
+                  "// Generowanie losowych adresów\r",
+                  "const adresy = [\r",
+                  "    {\r",
+                  "        miasto: \"Świebodzice\",\r",
+                  "        kod: \"58-160\",\r",
+                  "        ulice: [\"Wałbrzyska\", \"Piłsudskiego\", \"Mickiewicza\", \"Sienkiewicza\", \"Żeromskiego\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Wrocław\",\r",
+                  "        kod: \"50-001\",\r",
+                  "        ulice: [\"Legnicka\", \"Grabiszyńska\", \"Powstańców Śląskich\", \"Hallera\", \"Kościuszki\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Warszawa\",\r",
+                  "        kod: \"00-001\",\r",
+                  "        ulice: [\"Marszałkowska\", \"Puławska\", \"Aleje Jerozolimskie\", \"Mokotowska\", \"Targowa\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Kraków\",\r",
+                  "        kod: \"30-001\",\r",
+                  "        ulice: [\"Dietla\", \"Karmelicka\", \"Opolska\", \"Lubicz\", \"Starowiślna\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Poznań\",\r",
+                  "        kod: \"60-001\",\r",
+                  "        ulice: [\"Głogowska\", \"Dąbrowskiego\", \"Hetmańska\", \"Grunwaldzka\", \"Bukowska\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Gdańsk\",\r",
+                  "        kod: \"80-001\",\r",
+                  "        ulice: [\"Kartuska\", \"Grunwaldzka\", \"Długa\", \"Słowackiego\", \"Kołobrzeska\"]\r",
+                  "    }\r",
+                  "];\r",
+                  "\r",
+                  "const adres = adresy[Math.floor(Math.random() * adresy.length)];\r",
+                  "const ulica = adres.ulice[Math.floor(Math.random() * adres.ulice.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_miasto\", adres.miasto);\r",
+                  "pm.environment.set(\"random_kod\", adres.kod);\r",
+                  "pm.environment.set(\"random_ulica\", ulica);\r",
+                  "pm.environment.set(\"random_nr_domu\", Math.floor(Math.random() * 200) + 1);\r",
+                  "pm.environment.set(\"random_nr_mieszkania\", Math.floor(Math.random() * 100) + 1);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "f11ebfbc-9cd5-4bac-96e5-04c368284f7b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "{{random_imie}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "{{random_nazwisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "{{random_imie}} {{random_nazwisko}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "{{random_pesel}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "{{random_ulica}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "{{random_nr_domu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "{{random_nr_mieszkania}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "{{random_kod}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "{{random_miasto}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "edoreczenia_adres[0]",
+                  "value": "AE:PL-18375-10021-DTBRC-21",
+                  "description": "skrzynka ADE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "description": "olcom",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "MARTA RAFAŁ",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "OLCOM",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "82032304996",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "3687eba8-36e0-4457-b4c5-ee983d937beb",
+      "description": "Zapisywanie danych"
+    },
+    {
+      "name": "POST - import sprawy - JP",
+      "item": [
+        {
+          "name": "importuj-sprawe",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "774e4920-7d60-49b4-b220-1709e9634348",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"sprawa_id_post_resp\", jsonData.data.id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "39a55bf8-c7f5-4019-aa8c-c4e2656194d5",
+                "exec": [
+                  "const moment = require('moment');\r",
+                  "// Uzyskaj aktualną datę i odejmij 1 dzień\r",
+                  "const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');\r",
+                  "// Uzyskaj aktualną datę i dodaj 14 dni000000\r",
+                  "const futureDate = moment().add(14, 'days').format('YYYY-MM-DD');\r",
+                  "// Przypisz wartość do zmiennej środowiskowej lub globalnej\r",
+                  "pm.environment.set(\"date_yesterday\", yesterday);\r",
+                  "pm.environment.set(\"future_date\", futureDate);\r",
+                  "const date = new Date();\r",
+                  "pm.environment.set(\"date_today\", date.toISOString().split('T')[0]);\r",
+                  "\r",
+                  "const now = new Date();\r",
+                  "\r",
+                  "const data =\r",
+                  "    now.getFullYear() + \"-\" +\r",
+                  "    String(now.getMonth() + 1).padStart(2, \"0\") + \"-\" +\r",
+                  "    String(now.getDate()).padStart(2, \"0\");\r",
+                  "\r",
+                  "pm.environment.set(\r",
+                  "    \"tytul_sprawy_data\",\r",
+                  "    `Sprawa założona dnia ${data}`\r",
+                  ");\r",
+                  "\r",
+                  "let numer = parseInt(pm.environment.get(\"numer_kolejny_sprawy\") || \"0\", 10);\r",
+                  "\r",
+                  "numer++;\r",
+                  "\r",
+                  "pm.environment.set(\"numer_kolejny_sprawy\", numer);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "cfd622de-31a2-4333-9cab-18d6174f5662",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "9064",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "{{tytul_sprawy_data}}"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "{{jrwa}}"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "{{termin_sprawy}}"
+                },
+                {
+                  "key": "numer_sprawy",
+                  "value": "{{numer_kolejny_sprawy}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_sprawy",
+                  "value": "{{komorka_org}}.{{jrwa}}.{{numer_kolejny_sprawy}}.{{rok_sprawy}}",
+                  "type": "text"
+                },
+                {
+                  "key": "rok",
+                  "value": "{{rok_sprawy}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/importuj-sprawe",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "importuj-sprawe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nowy-dokument-w-sprawie",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c07bbb2f-60e6-444a-b41a-c267c6b56331",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_post_resp\", jsonData.data.dokument_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "30edfb79-5a3a-44c1-8563-1c35f4ddf5b8",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "Pismo w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "to jest uwaga do dokumentu",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_opis",
+                  "value": "to jest opis dokumentu",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/nowy-dokument-w-sprawie",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowy-dokument-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "starosta_2",
+                  "disabled": true
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument w sprawie",
+                  "disabled": true
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "676a7541-924e-4a73-bbd4-660e0014f3b0",
+                "exec": [
+                  "const now = new Date();\r",
+                  "\r",
+                  "const fileName =\r",
+                  "    `Zalacznik_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}-${String(now.getSeconds()).padStart(2,'0')}.pdf`;\r",
+                  "\r",
+                  "pm.environment.set(\"file_name\", fileName);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "72f6ca74-fe58-4575-a8fe-83370492fe61",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "file_content",
+                  "value": "{{tresc}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "{{file_name}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "nazwa_zalacznika.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c8d685c-3f0b-42db-80bb-965e0f02b897",
+                "exec": [
+                  "function generateRandomPesel() {\r",
+                  "    // Generowanie losowej daty urodzenia\r",
+                  "    const start = new Date(1900, 0, 1).getTime();\r",
+                  "    const end = new Date(2099, 11, 31).getTime();\r",
+                  "    const birthDate = new Date(start + Math.random() * (end - start));\r",
+                  "    // Ekstrakcja daty urodzenia\r",
+                  "    const year = birthDate.getFullYear();\r",
+                  "    let month = birthDate.getMonth() + 1;\r",
+                  "    const day = birthDate.getDate();\r",
+                  "    // Dostosowanie miesiąca do PESEL\r",
+                  "    if (year >= 2000) {\r",
+                  "        month += 20;\r",
+                  "    } else if (year >= 2100) {\r",
+                  "        month += 40;\r",
+                  "    } else if (year >= 2200) {\r",
+                  "        month += 60;\r",
+                  "    } else if (year >= 1800) {\r",
+                  "        month += 80;\r",
+                  "    }\r",
+                  "    // Składanie pierwszych 10 cyfr PESEL\r",
+                  "    const yearShort = year % 100;\r",
+                  "    const peselWithoutChecksum = `${yearShort.toString().padStart(2, '0')}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}${Math.floor(Math.random() * 9999).toString().padStart(4, '0')}`;\r",
+                  "    // Wagi do obliczenia sumy kontrolnej\r",
+                  "    const weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];\r",
+                  "    let checksum = 0;\r",
+                  "    // Obliczanie sumy kontrolnej\r",
+                  "    for (let i = 0; i < weights.length; i++) {\r",
+                  "        checksum += parseInt(peselWithoutChecksum[i]) * weights[i];\r",
+                  "    }\r",
+                  "    checksum = (10 - (checksum % 10)) % 10;\r",
+                  "    // Składanie pełnego numeru PESEL\r",
+                  "    return `${peselWithoutChecksum}${checksum}`;\r",
+                  "}\r",
+                  "// Generowanie losowego PESEL\r",
+                  "const randomPesel = generateRandomPesel();\r",
+                  "// Przypisanie PESEL do zmiennej środowiskowej\r",
+                  "pm.environment.set(\"random_pesel\", randomPesel);\r",
+                  "\r",
+                  "// Przypisanie wartości do zmiennej środowiskowej\r",
+                  "// pm.environment.set(\"random_imie\", pm.variables.replaceIn('{{$randomFirstName}}'));\r",
+                  "// pm.environment.set(\"random_nazwisko\", pm.variables.replaceIn('{{$randomLastName}}'));\r",
+                  "\r",
+                  "const imiona = [\r",
+                  "    \"Jan\", \"Piotr\", \"Krzysztof\", \"Michał\", \"Tomasz\", \"Paweł\", \"Andrzej\",\r",
+                  "    \"Marcin\", \"Mateusz\", \"Jakub\", \"Łukasz\", \"Adam\", \"Marek\", \"Grzegorz\",\r",
+                  "    \"Dariusz\", \"Rafał\", \"Kamil\", \"Patryk\", \"Damian\", \"Bartosz\",\r",
+                  "    \"Wojciech\", \"Maciej\", \"Szymon\", \"Mikołaj\", \"Karol\", \"Sebastian\",\r",
+                  "    \"Artur\", \"Norbert\", \"Przemysław\", \"Daniel\", \"Robert\", \"Tadeusz\",\r",
+                  "    \"Jerzy\", \"Henryk\", \"Zbigniew\", \"Jacek\", \"Ryszard\", \"Cezary\",\r",
+                  "    \"Anna\", \"Katarzyna\", \"Agnieszka\", \"Magdalena\", \"Ewa\", \"Joanna\",\r",
+                  "    \"Małgorzata\", \"Monika\", \"Aleksandra\", \"Natalia\", \"Paulina\",\r",
+                  "    \"Karolina\", \"Patrycja\", \"Marta\", \"Justyna\", \"Weronika\",\r",
+                  "    \"Kinga\", \"Barbara\", \"Elżbieta\", \"Zofia\", \"Emilia\", \"Julia\",\r",
+                  "    \"Maria\", \"Hanna\", \"Oliwia\", \"Wiktoria\", \"Laura\", \"Alicja\",\r",
+                  "    \"Antonina\", \"Gabriela\", \"Lena\", \"Dominika\", \"Sylwia\"\r",
+                  "];\r",
+                  "\r",
+                  "const nazwiska = [\r",
+                  "    \"Nowak\", \"Kowalski\", \"Wiśniewski\", \"Wójcik\", \"Kowalczyk\",\r",
+                  "    \"Kamiński\", \"Lewandowski\", \"Zieliński\", \"Szymański\", \"Woźniak\",\r",
+                  "    \"Dąbrowski\", \"Kozłowski\", \"Jankowski\", \"Mazur\", \"Krawczyk\",\r",
+                  "    \"Piotrowski\", \"Grabowski\", \"Nowakowski\", \"Pawłowski\", \"Michalski\",\r",
+                  "    \"Król\", \"Wieczorek\", \"Wróbel\", \"Jabłoński\", \"Dudek\",\r",
+                  "    \"Stępień\", \"Jaworski\", \"Malinowski\", \"Adamczyk\", \"Walczak\",\r",
+                  "    \"Zając\", \"Górski\", \"Pawlak\", \"Rutkowski\", \"Sikora\",\r",
+                  "    \"Olszewski\", \"Baran\", \"Tomaszewski\", \"Pietrzak\", \"Marciniak\",\r",
+                  "    \"Kubiak\", \"Lis\", \"Jakubowski\", \"Wasilewski\", \"Kaczmarek\",\r",
+                  "    \"Kalinowski\", \"Bąk\", \"Piątek\", \"Chmielewski\", \"Sawicki\",\r",
+                  "    \"Czarnecki\", \"Kucharski\", \"Kopeć\", \"Kurek\", \"Borkowski\",\r",
+                  "    \"Kania\", \"Mazurek\", \"Kłos\", \"Bednarek\", \"Wilk\",\r",
+                  "    \"Głowacki\", \"Sokołowski\", \"Tomczak\", \"Kaczor\", \"Urban\",\r",
+                  "    \"Mucha\", \"Majewski\", \"Szczepański\", \"Błaszczyk\", \"Cieślak\",\r",
+                  "    \"Mikołajczyk\", \"Rogowski\", \"Domański\", \"Sobczak\", \"Szulc\",\r",
+                  "    \"Kowalik\", \"Krajewski\", \"Zalewski\", \"Olejniczak\", \"Kołodziej\",\r",
+                  "    \"Kubiak\", \"Włodarczyk\", \"Bielawski\", \"Rybak\", \"Pawelski\",\r",
+                  "    \"Ratajczak\", \"Gajewski\", \"Musiał\", \"Sadowski\", \"Czarna\",\r",
+                  "    \"Brzeziński\", \"Matuszewski\", \"Kędzierski\", \"Puchała\", \"Kurek\"\r",
+                  "];\r",
+                  "\r",
+                  "const randomImie = imiona[Math.floor(Math.random() * imiona.length)];\r",
+                  "const randomNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_imie\", randomImie);\r",
+                  "pm.environment.set(\"random_nazwisko\", randomNazwisko);\r",
+                  "\r",
+                  "// Generowanie losowych adresów\r",
+                  "const adresy = [\r",
+                  "    {\r",
+                  "        miasto: \"Świebodzice\",\r",
+                  "        kod: \"58-160\",\r",
+                  "        ulice: [\"Wałbrzyska\", \"Piłsudskiego\", \"Mickiewicza\", \"Sienkiewicza\", \"Żeromskiego\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Wrocław\",\r",
+                  "        kod: \"50-001\",\r",
+                  "        ulice: [\"Legnicka\", \"Grabiszyńska\", \"Powstańców Śląskich\", \"Hallera\", \"Kościuszki\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Warszawa\",\r",
+                  "        kod: \"00-001\",\r",
+                  "        ulice: [\"Marszałkowska\", \"Puławska\", \"Aleje Jerozolimskie\", \"Mokotowska\", \"Targowa\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Kraków\",\r",
+                  "        kod: \"30-001\",\r",
+                  "        ulice: [\"Dietla\", \"Karmelicka\", \"Opolska\", \"Lubicz\", \"Starowiślna\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Poznań\",\r",
+                  "        kod: \"60-001\",\r",
+                  "        ulice: [\"Głogowska\", \"Dąbrowskiego\", \"Hetmańska\", \"Grunwaldzka\", \"Bukowska\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Gdańsk\",\r",
+                  "        kod: \"80-001\",\r",
+                  "        ulice: [\"Kartuska\", \"Grunwaldzka\", \"Długa\", \"Słowackiego\", \"Kołobrzeska\"]\r",
+                  "    }\r",
+                  "];\r",
+                  "\r",
+                  "const adres = adresy[Math.floor(Math.random() * adresy.length)];\r",
+                  "const ulica = adres.ulice[Math.floor(Math.random() * adres.ulice.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_miasto\", adres.miasto);\r",
+                  "pm.environment.set(\"random_kod\", adres.kod);\r",
+                  "pm.environment.set(\"random_ulica\", ulica);\r",
+                  "pm.environment.set(\"random_nr_domu\", Math.floor(Math.random() * 200) + 1);\r",
+                  "pm.environment.set(\"random_nr_mieszkania\", Math.floor(Math.random() * 100) + 1);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "bf73ddf2-b6ed-43f2-9cd4-f8505c564083",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "{{random_imie}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "{{random_nazwisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "{{random_imie}} {{random_nazwisko}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "{{random_pesel}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "{{random_ulica}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "{{random_nr_domu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "{{random_nr_mieszkania}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "{{random_kod}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "{{random_miasto}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "edoreczenia_adres[0]",
+                  "value": "AE:PL-18375-10021-DTBRC-21",
+                  "description": "skrzynka ADE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "description": "olcom",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "MARTA RAFAŁ",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "OLCOM",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "82032304996",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nowy-dokument-w-sprawie JS",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c07bbb2f-60e6-444a-b41a-c267c6b56331",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_post_resp\", jsonData.data.dokument_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "d62a4f81-3cb8-4a26-8dae-93024f26b6b3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Nowy dokument w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "Pismo nr 2 w sprawie",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "to jest uwaga",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_opis",
+                  "value": "to jest opis",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/nowy-dokument-w-sprawie",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowy-dokument-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "starosta_2",
+                  "disabled": true
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "{{sprawa_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "Dokument w sprawie",
+                  "disabled": true
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu JS",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "676a7541-924e-4a73-bbd4-660e0014f3b0",
+                "exec": [
+                  "const now = new Date();\r",
+                  "\r",
+                  "const fileName =\r",
+                  "    `Zalacznik_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}-${String(now.getSeconds()).padStart(2,'0')}.pdf`;\r",
+                  "\r",
+                  "pm.environment.set(\"file_name\", fileName);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "2fa9200f-3695-4742-8e8a-dae410a6a52d",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "file_content",
+                  "value": "{{tresc}}",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "{{file_name}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "nazwa_zalacznika.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu JS",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c8d685c-3f0b-42db-80bb-965e0f02b897",
+                "exec": [
+                  "function generateRandomPesel() {\r",
+                  "    // Generowanie losowej daty urodzenia\r",
+                  "    const start = new Date(1900, 0, 1).getTime();\r",
+                  "    const end = new Date(2099, 11, 31).getTime();\r",
+                  "    const birthDate = new Date(start + Math.random() * (end - start));\r",
+                  "    // Ekstrakcja daty urodzenia\r",
+                  "    const year = birthDate.getFullYear();\r",
+                  "    let month = birthDate.getMonth() + 1;\r",
+                  "    const day = birthDate.getDate();\r",
+                  "    // Dostosowanie miesiąca do PESEL\r",
+                  "    if (year >= 2000) {\r",
+                  "        month += 20;\r",
+                  "    } else if (year >= 2100) {\r",
+                  "        month += 40;\r",
+                  "    } else if (year >= 2200) {\r",
+                  "        month += 60;\r",
+                  "    } else if (year >= 1800) {\r",
+                  "        month += 80;\r",
+                  "    }\r",
+                  "    // Składanie pierwszych 10 cyfr PESEL\r",
+                  "    const yearShort = year % 100;\r",
+                  "    const peselWithoutChecksum = `${yearShort.toString().padStart(2, '0')}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}${Math.floor(Math.random() * 9999).toString().padStart(4, '0')}`;\r",
+                  "    // Wagi do obliczenia sumy kontrolnej\r",
+                  "    const weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];\r",
+                  "    let checksum = 0;\r",
+                  "    // Obliczanie sumy kontrolnej\r",
+                  "    for (let i = 0; i < weights.length; i++) {\r",
+                  "        checksum += parseInt(peselWithoutChecksum[i]) * weights[i];\r",
+                  "    }\r",
+                  "    checksum = (10 - (checksum % 10)) % 10;\r",
+                  "    // Składanie pełnego numeru PESEL\r",
+                  "    return `${peselWithoutChecksum}${checksum}`;\r",
+                  "}\r",
+                  "// Generowanie losowego PESEL\r",
+                  "const randomPesel = generateRandomPesel();\r",
+                  "// Przypisanie PESEL do zmiennej środowiskowej\r",
+                  "pm.environment.set(\"random_pesel\", randomPesel);\r",
+                  "\r",
+                  "// Przypisanie wartości do zmiennej środowiskowej\r",
+                  "// pm.environment.set(\"random_imie\", pm.variables.replaceIn('{{$randomFirstName}}'));\r",
+                  "// pm.environment.set(\"random_nazwisko\", pm.variables.replaceIn('{{$randomLastName}}'));\r",
+                  "\r",
+                  "const imiona = [\r",
+                  "    \"Jan\", \"Piotr\", \"Krzysztof\", \"Michał\", \"Tomasz\", \"Paweł\", \"Andrzej\",\r",
+                  "    \"Marcin\", \"Mateusz\", \"Jakub\", \"Łukasz\", \"Adam\", \"Marek\", \"Grzegorz\",\r",
+                  "    \"Dariusz\", \"Rafał\", \"Kamil\", \"Patryk\", \"Damian\", \"Bartosz\",\r",
+                  "    \"Wojciech\", \"Maciej\", \"Szymon\", \"Mikołaj\", \"Karol\", \"Sebastian\",\r",
+                  "    \"Artur\", \"Norbert\", \"Przemysław\", \"Daniel\", \"Robert\", \"Tadeusz\",\r",
+                  "    \"Jerzy\", \"Henryk\", \"Zbigniew\", \"Jacek\", \"Ryszard\", \"Cezary\",\r",
+                  "    \"Anna\", \"Katarzyna\", \"Agnieszka\", \"Magdalena\", \"Ewa\", \"Joanna\",\r",
+                  "    \"Małgorzata\", \"Monika\", \"Aleksandra\", \"Natalia\", \"Paulina\",\r",
+                  "    \"Karolina\", \"Patrycja\", \"Marta\", \"Justyna\", \"Weronika\",\r",
+                  "    \"Kinga\", \"Barbara\", \"Elżbieta\", \"Zofia\", \"Emilia\", \"Julia\",\r",
+                  "    \"Maria\", \"Hanna\", \"Oliwia\", \"Wiktoria\", \"Laura\", \"Alicja\",\r",
+                  "    \"Antonina\", \"Gabriela\", \"Lena\", \"Dominika\", \"Sylwia\"\r",
+                  "];\r",
+                  "\r",
+                  "const nazwiska = [\r",
+                  "    \"Nowak\", \"Kowalski\", \"Wiśniewski\", \"Wójcik\", \"Kowalczyk\",\r",
+                  "    \"Kamiński\", \"Lewandowski\", \"Zieliński\", \"Szymański\", \"Woźniak\",\r",
+                  "    \"Dąbrowski\", \"Kozłowski\", \"Jankowski\", \"Mazur\", \"Krawczyk\",\r",
+                  "    \"Piotrowski\", \"Grabowski\", \"Nowakowski\", \"Pawłowski\", \"Michalski\",\r",
+                  "    \"Król\", \"Wieczorek\", \"Wróbel\", \"Jabłoński\", \"Dudek\",\r",
+                  "    \"Stępień\", \"Jaworski\", \"Malinowski\", \"Adamczyk\", \"Walczak\",\r",
+                  "    \"Zając\", \"Górski\", \"Pawlak\", \"Rutkowski\", \"Sikora\",\r",
+                  "    \"Olszewski\", \"Baran\", \"Tomaszewski\", \"Pietrzak\", \"Marciniak\",\r",
+                  "    \"Kubiak\", \"Lis\", \"Jakubowski\", \"Wasilewski\", \"Kaczmarek\",\r",
+                  "    \"Kalinowski\", \"Bąk\", \"Piątek\", \"Chmielewski\", \"Sawicki\",\r",
+                  "    \"Czarnecki\", \"Kucharski\", \"Kopeć\", \"Kurek\", \"Borkowski\",\r",
+                  "    \"Kania\", \"Mazurek\", \"Kłos\", \"Bednarek\", \"Wilk\",\r",
+                  "    \"Głowacki\", \"Sokołowski\", \"Tomczak\", \"Kaczor\", \"Urban\",\r",
+                  "    \"Mucha\", \"Majewski\", \"Szczepański\", \"Błaszczyk\", \"Cieślak\",\r",
+                  "    \"Mikołajczyk\", \"Rogowski\", \"Domański\", \"Sobczak\", \"Szulc\",\r",
+                  "    \"Kowalik\", \"Krajewski\", \"Zalewski\", \"Olejniczak\", \"Kołodziej\",\r",
+                  "    \"Kubiak\", \"Włodarczyk\", \"Bielawski\", \"Rybak\", \"Pawelski\",\r",
+                  "    \"Ratajczak\", \"Gajewski\", \"Musiał\", \"Sadowski\", \"Czarna\",\r",
+                  "    \"Brzeziński\", \"Matuszewski\", \"Kędzierski\", \"Puchała\", \"Kurek\"\r",
+                  "];\r",
+                  "\r",
+                  "const randomImie = imiona[Math.floor(Math.random() * imiona.length)];\r",
+                  "const randomNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_imie\", randomImie);\r",
+                  "pm.environment.set(\"random_nazwisko\", randomNazwisko);\r",
+                  "\r",
+                  "// Generowanie losowych adresów\r",
+                  "const adresy = [\r",
+                  "    {\r",
+                  "        miasto: \"Świebodzice\",\r",
+                  "        kod: \"58-160\",\r",
+                  "        ulice: [\"Wałbrzyska\", \"Piłsudskiego\", \"Mickiewicza\", \"Sienkiewicza\", \"Żeromskiego\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Wrocław\",\r",
+                  "        kod: \"50-001\",\r",
+                  "        ulice: [\"Legnicka\", \"Grabiszyńska\", \"Powstańców Śląskich\", \"Hallera\", \"Kościuszki\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Warszawa\",\r",
+                  "        kod: \"00-001\",\r",
+                  "        ulice: [\"Marszałkowska\", \"Puławska\", \"Aleje Jerozolimskie\", \"Mokotowska\", \"Targowa\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Kraków\",\r",
+                  "        kod: \"30-001\",\r",
+                  "        ulice: [\"Dietla\", \"Karmelicka\", \"Opolska\", \"Lubicz\", \"Starowiślna\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Poznań\",\r",
+                  "        kod: \"60-001\",\r",
+                  "        ulice: [\"Głogowska\", \"Dąbrowskiego\", \"Hetmańska\", \"Grunwaldzka\", \"Bukowska\"]\r",
+                  "    },\r",
+                  "    {\r",
+                  "        miasto: \"Gdańsk\",\r",
+                  "        kod: \"80-001\",\r",
+                  "        ulice: [\"Kartuska\", \"Grunwaldzka\", \"Długa\", \"Słowackiego\", \"Kołobrzeska\"]\r",
+                  "    }\r",
+                  "];\r",
+                  "\r",
+                  "const adres = adresy[Math.floor(Math.random() * adresy.length)];\r",
+                  "const ulica = adres.ulice[Math.floor(Math.random() * adres.ulice.length)];\r",
+                  "\r",
+                  "pm.environment.set(\"random_miasto\", adres.miasto);\r",
+                  "pm.environment.set(\"random_kod\", adres.kod);\r",
+                  "pm.environment.set(\"random_ulica\", ulica);\r",
+                  "pm.environment.set(\"random_nr_domu\", Math.floor(Math.random() * 200) + 1);\r",
+                  "pm.environment.set(\"random_nr_mieszkania\", Math.floor(Math.random() * 100) + 1);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "c7e66147-0437-41ed-9a30-57b41480f534",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "{{random_imie}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "{{random_nazwisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "{{random_imie}} {{random_nazwisko}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "{{random_pesel}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "{{random_ulica}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "{{random_nr_domu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "{{random_nr_mieszkania}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "{{random_kod}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "{{random_miasto}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "{{komorka_org}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "edoreczenia_adres[0]",
+                  "value": "AE:PL-18375-10021-DTBRC-21",
+                  "description": "skrzynka ADE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "{{dokument_id_post_resp}}",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "109726",
+                  "description": "olcom",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "MARTA RAFAŁ",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "OLCOM",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "82032304996",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "00ab1afe-ac2f-4d3a-8add-03f8b001d9e3",
+      "description": "Zapisywanie danych"
+    }
+  ]
+}

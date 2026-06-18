@@ -1,0 +1,2336 @@
+{
+  "info": {
+    "_postman_id": "48838e02-a26d-46a7-9a86-e49a35c8ea43",
+    "name": "EZD API v.2.16 (EZD 1.8.2.0)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "typ-dokumnetu",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "b4bcdfc5-10b8-4c3c-889d-1cfe9176c881"
+              }
+            }
+          ],
+          "id": "ab8d5835-8b66-4028-a5c6-956f179c829f",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/typ-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "typ-dokumentu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-przekazanych-na-stanowisko",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "8105ccfb-b78a-4591-bcce-9fb1eb3d54f4"
+              }
+            }
+          ],
+          "id": "0a36d717-f727-45f5-b66c-34bdef37d4c7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-dokumentow-przekazanych-na-stanowisko?stanowisko_id=wojt_1&data_utworzenia_od=2024-11-07&data_utworzenia_do=2024-11-07",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-dokumentow-przekazanych-na-stanowisko"
+              ],
+              "query": [
+                {
+                  "key": "symbol_dokumentu",
+                  "value": "92",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_dokumentu",
+                  "value": "qaz",
+                  "disabled": true
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "wniosek",
+                  "disabled": true
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "data_utworzenia_od",
+                  "value": "2024-11-07"
+                },
+                {
+                  "key": "data_utworzenia_do",
+                  "value": "2024-11-07"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-spraw",
+          "id": "5d824d16-aedf-4002-bd1e-2779b4061c8b",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-spraw?stanowisko_id=wojt_1&jrwa=0001",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-spraw"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "jrwa",
+                  "value": "0001"
+                },
+                {
+                  "key": "symbol_sprawy",
+                  "value": "WG.0001",
+                  "disabled": true
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "905",
+                  "disabled": true
+                },
+                {
+                  "key": "nazwa_interesanta",
+                  "value": "Andrz",
+                  "disabled": true
+                },
+                {
+                  "key": "data_utworzenia_od",
+                  "value": "2024-10-01",
+                  "disabled": true
+                },
+                {
+                  "key": "data_utworzenia_do",
+                  "value": "2024-11-18",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-spraw-interesanta",
+          "id": "8689e253-0992-4c4f-ae59-d0d45146bea6",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezd_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/sd/lista-spraw-interesanta?pesel=50052984894",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-spraw-interesanta"
+              ],
+              "query": [
+                {
+                  "key": "pesel",
+                  "value": "50052984894"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-podteczek",
+          "id": "864d0fa4-74c4-455f-a842-143d2d9d9b25",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-podteczek?stanowisko_id=wojt_1&jrwa=0001&rok=2025",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-podteczek"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "jrwa",
+                  "value": "0001"
+                },
+                {
+                  "key": "symbol_podteczki",
+                  "value": "WG",
+                  "disabled": true
+                },
+                {
+                  "key": "rok",
+                  "value": "2025"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-wszystkich-podteczek",
+          "id": "fb3f232d-36d6-47d9-9d05-8181867cab97",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-wszystkich-podteczek?wszystkie_stanowiska=1&rok=2025",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-wszystkich-podteczek"
+              ],
+              "query": [
+                {
+                  "key": "jrwa",
+                  "value": "3121",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_podteczki",
+                  "value": "Fn",
+                  "disabled": true
+                },
+                {
+                  "key": "wszystkie_stanowiska",
+                  "value": "1"
+                },
+                {
+                  "key": "rok",
+                  "value": "2025"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-w-sprawie",
+          "id": "a6e9cc82-6066-45c1-a571-017a43d59ed6",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-dokumentow-w-sprawie?stanowisko_id=wojt_2&sprawa_id=8687",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-dokumentow-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "8687"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-zalacznikow-w-dokumencie",
+          "id": "f47f0962-0cf1-4857-8a47-d5cea209a9b4",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-zalacznikow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=7913",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-zalacznikow-w-dokumencie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "7913"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-interesantow-w-dokumencie",
+          "id": "0c10b0a4-96f0-4231-8df5-1f9e265f1fad",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/lista-interesantow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=7913",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "lista-interesantow-w-dokumencie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "7913"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "szczegoly-sprawy",
+          "id": "eb485c81-86b9-4c5f-8b99-9b9186ece7fc",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/szczegoly-sprawy?stanowisko_id=_tano_ko___wymiaru_po_2&sprawa_id=2297&czy_lista_dokumentow=true",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "szczegoly-sprawy"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "_tano_ko___wymiaru_po_2"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "2297"
+                },
+                {
+                  "key": "czy_lista_dokumentow",
+                  "value": "true"
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_tresc_zalacznikow",
+                  "value": "true",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "szczegoly-dokumentu",
+          "id": "0bc9fd00-83ed-43f0-9f61-1c7f33307696",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/szczegoly-dokumentu?stanowisko_id=wojt_2&dokument_id=7918",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "szczegoly-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "7918"
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_tresc_zalacznikow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-zalacznik",
+          "id": "7f9de4c5-d38a-415b-ba2c-773959ec04e1",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/wez-zalacznik?stanowisko_id=wojt_2&zalacznik_id=225",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "wez-zalacznik"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "zalacznik_id",
+                  "value": "225"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-interesanta",
+          "id": "48d20599-79fd-400d-ac1d-194fef001596",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/wez-interesanta?stanowisko_id=wojt_2&interesant_id=70002",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "wez-interesanta"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "interesant_id",
+                  "value": "70002"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-oswiadczenia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "bc64457a-7fab-40d0-9cec-68c563e33990"
+              }
+            }
+          ],
+          "id": "4f78f291-eb84-47b0-8599-7c9e17ecf4b7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/get-oswiadczenia?data_od=2022-11-01&data_do=2022-11-11&szablon=OSW_1",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "get-oswiadczenia"
+              ],
+              "query": [
+                {
+                  "key": "data_od",
+                  "value": "2022-11-01"
+                },
+                {
+                  "key": "data_do",
+                  "value": "2022-11-11"
+                },
+                {
+                  "key": "szablon",
+                  "value": "OSW_1"
+                }
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "4aa46c6b-ae9a-4f86-b67d-082ec1bf8538",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/DominikaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "potwierdzenia-dostarczenia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "5d13e9f5-e469-483d-99a7-7e547a0a940c"
+              }
+            }
+          ],
+          "id": "87f3f47b-23d9-45c1-99da-1f6e66eb6716",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/potwierdzenia-dostarczenia?dokumenty[0]=1847&dokumenty[1]=1855",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "potwierdzenia-dostarczenia"
+              ],
+              "query": [
+                {
+                  "key": "dokumenty[0]",
+                  "value": "1847"
+                },
+                {
+                  "key": "dokumenty[1]",
+                  "value": "1855"
+                }
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "652b0723-c049-47ec-8ded-926f2fe50f45",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/EmiliaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "radix-lista-formularzy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2e0732d8-00e0-4b5c-bbfe-4e5d8838b240",
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "1d0e2bfe-91e5-4195-b342-e7bd3bb472cc",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/radix-lista-formularzy",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "radix-lista-formularzy"
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "61d03a5b-54b9-4173-a406-d63f4a75f2ee",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/EmiliaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "radix-lista-dokumentow",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "64ca1ede-4fc9-4d03-a46d-0a5578935124",
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "237f2a6e-a836-4f0e-86ab-279d99925934",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/radix-lista-dokumentow?data_rejestracji_od=2025-05-26&data_rejestracji_do=2025-06-30&kod_formularza=IL-1",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "radix-lista-dokumentow"
+              ],
+              "query": [
+                {
+                  "key": "data_rejestracji_od",
+                  "value": "2025-05-26"
+                },
+                {
+                  "key": "data_rejestracji_do",
+                  "value": "2025-06-30"
+                },
+                {
+                  "key": "kod_formularza",
+                  "value": "IL-1"
+                }
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "487d9aa3-a266-409e-98f2-622d77807857",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/EmiliaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "id": "d3fe08cb-1b7b-4c19-a383-a08d102a3c75",
+      "description": "Czytanie danych"
+    },
+    {
+      "name": "POST",
+      "item": [
+        {
+          "name": "nowa-sprawa",
+          "id": "5023e90b-d016-40e7-9eb3-b9ecfe714049",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "testowa"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0030"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "2025-03-31"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/nowa-sprawa",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowa-sprawa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "przekaz-sprawe-innemu-pracownikowi",
+          "id": "a1a3b514-af52-4b5a-8b73-4821a030cfef",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "sprawa_id",
+                  "value": "9677",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_przekazujace_id",
+                  "value": "stanowi_ds_ksiegow_podatko_1",
+                  "type": "text"
+                },
+                {
+                  "key": "przekazano_do_stanowisko_id",
+                  "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                  "type": "text"
+                },
+                {
+                  "key": "przekazano_do_user_id",
+                  "value": "49",
+                  "type": "text"
+                },
+                {
+                  "key": "komentarz",
+                  "value": "przekazanie API",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/przekaz-sprawe-innemu-pracownikowi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "przekaz-sprawe-innemu-pracownikowi"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "importuj-sprawe",
+          "id": "1841a620-713d-4a29-b5ff-0ce1c35db5ea",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "8339",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "test_1"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0008"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "2019-05-28 18:20:05"
+                },
+                {
+                  "key": "numer_sprawy",
+                  "value": "103",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_sprawy",
+                  "value": "WG.0008.103.2022",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/importuj-sprawe",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "importuj-sprawe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nowy-dokument-w-sprawie",
+          "id": "5ffa5dcc-e76d-4d02-a5e4-456da75899ba",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "test-6",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "9522",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "wniosek_o_udostepnienie_danych",
+                  "type": "text"
+                },
+                {
+                  "key": "id_decyzji",
+                  "value": "987654321"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/nowy-dokument-w-sprawie?stanowisko_id=stanowi_ds_wymia_podat_i_opla_wiejsk_1&sprawa_id=9522&dokument_tytul=test api dokument&typ_dokumentu=decyzja&id_decyzji=987654321",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "nowy-dokument-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "9522"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "test api dokument"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "decyzja"
+                },
+                {
+                  "key": "id_decyzji",
+                  "value": "987654321"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "id": "a9cc2076-ac34-491e-b66a-3b477fd715b2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "skarb_gmin_1"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/jpeg",
+                  "type": "text"
+                },
+                {
+                  "key": "file_name",
+                  "value": "test_api_2.jpg",
+                  "type": "text"
+                },
+                {
+                  "key": "file_content",
+                  "value": "/9j/4AAQSkZJRgABAQEAYABgAAD/4QBaRXhpZgAATU0AKgAAAAgABQMBAAUAAAABAAAASgMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAAOw1ESAAQAAAABAAAOwwAAAAAAAYagAACxj//bAEMAAgEBAgEBAgICAgICAgIDBQMDAwMDBgQEAwUHBgcHBwYHBwgJCwkICAoIBwcKDQoKCwwMDAwHCQ4PDQwOCwwMDP/bAEMBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIACgAKgMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APVP+CYn7Nnx9/bK+EYh8KfGDUPhR8M/Ceo3NgJNHllgvLq8dVuHLR2zQtcYEsQLzzfKpVUBCkBP+Cmv7OPx0/Yq8ELH4p+LfjD4v/DDxlANKvX1fU5444dQPmTwRm2kuZmyht0nWRSATGyNgH5/Gv2Wv+CpHj79jL9mrXPh74JstGtZta1e51KbWbqJ5rm1aW3t4VEC7gisv2ctucODvHA25Pc/tz/sjftB/C/9lHw340+MXxR1rxBY6/rFpHB4avdZv759Nnms55g8yT4jjmjCSxsqBsbiAxBNf0DLMYZBi3XxEqOHyyi4xpp07ucVGD56bhCVRtKSfPe3N03a9l5DmWf5nGlNutmGLlOTinFNT5ppqpzyjCD5ov3H9nt7qfO/8EVf2lLH9mv9ujRX1YIuleN7V/Cs9w5x9jeeWF4ZPTHnRRIxPCrIzdq/fev5XEt4oGulnkmimhX9yqxZ3yB1BViWBUbdxyAeVAxzkfrz+wp/wXz8K6l4IsfD3xua88PeINOto4l16CylubXVEWNQJJUjDypO/U7UKMTkbB8taeK/CFTGqHEGXLnTjedla8Urxnbd2hpJ9knZa2+Xwcq0a/8AZ04y54vkUfialezird53aS6u129X+lVFea/s4ftf/Dj9rfTNTu/h54mg8RRaNJHHehbae2ktjIGKbo5kR8NsfBxg7W54NelV/O9OrCpFTptNPqtUe3j8vxWBxEsLjaUqdSO8ZRcZLS+qaTWmuvQ/lWnLNKS/3s81+mP/AAVk/bv8M/tD/sP/AAh8Lf2tb6t8QNQh0jxZrq2CqbSwd9NmWWJ2DfJL5txxGASoU7tvAPmv7QX/AAQt+Ofw7+G154mmuvBXidfDtkWltNFvJTetbxBnZsS28QlKKCAN7SFQqKGwqj4ytfGS2HgifRf7H0lriW+ju/7UdZTfRKiSJ9nU+Z5YiYvvb93vLInzYGK/aeJKT8ReGKGF4epxpYmhZTpT9zlg42aptK3KnGKj05VrZpJ/p/CdTKODeN/7dz7EyxWG5pSp1qMvaOVS9063NaabjKUpaXcvh5o3a9p/4KP/ALHCfsUfFXwf4b86eTUdZ8GadreqwvIsi2l+5lhuY43Xho/Nt3ZT6PjnGT5n4Uu/DfiPwJpPheZbLRdYv9dafUfEeoJNLDYWSxIsKIkKPIBve5aUKjltsGANpz3n7Uf/AAUI8b/tZ/HGw+IGv6f4U0/W9N0GTw7HFY6cZLRraQXQYtFcvMDJi7lAbPy4QgBlzV/9mT9nn4x69ocR8G/BCbxK/ik+Xp3iTVPDU15a28bAowje4P8AZ4U8/vZY2ZCMq6Gv0rEzq5Jw9hcJipUYV6EIqlKrUUYqajODdlrLkg17sVefNbTc/MsqlPOM0xGPxXtpU8RKTrqjG7cXONSzlL3IKU4t80m1Dk5nF2s/sL/gid+2loP7N+par8JfG8Oi6YmrrPr+k+KrcRJbX9vFAzuk0oVSyqkMzK8h3q3mRMFZQg+p77/guX+zvZXs0K+JdZuFidkEsWiXOyQA43LlQcHqMgH2r5Y/Zy/4IC+OviO2g6v8a/HEmnWulRx28Hh60kOoXNvZh5Ha1E+/ybZd7swWESp+9Y8Emvt6y/4JQfs8WFnFAnwu0JkhQIpkluJHIAx8zNISx9SSSe9fzLx5io4vMIVsjdOzhF1GozjB1defkhJKUY7PXq3vu/vslpcHYdVpcTyxNWq6klCNKdKbjTVuR1KusZze37v3Uo9G7L6Hr4X/AG8P+CH3h39sL41f8JtoPiyH4dXt7b7NVgttBW7j1K43s32k4ni2yMGw553bQeuSSioyrOMXltV1sHLlbTi7pSTT3TUk016o/M02mpRbTTumm001s01qmZH7IH/BAjwZ+z38Vx4n8aeJYvietnGradp9zozWFva3KyI6zuBcyCbAUqEcbPnJIJC4+/6KKvNs8x2ZzjUxtTm5VZKySil0UYpRXySFy+9Kb1cndttttvq29WwoooryRn//2Q==",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "17216",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "arrow_left_3.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "id": "77e11547-b08d-4d7f-adb3-669a022ce45d",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "Jan",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "Kowalski",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "Jan Kowalski",
+                  "type": "text"
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "9320374787",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "76113005223",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[regon]",
+                  "value": "652006905",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "Pierwsza",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "11-111",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "Pierwsze",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "17629",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                  "type": "text"
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "/test/jeden",
+                  "type": "text"
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "/test/dwa",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kores_ulica]",
+                  "value": "Druga3",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kores_nr_domu]",
+                  "value": "23",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kores_nr_mieszkania]",
+                  "value": "223",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kores_kod_pocztowy]",
+                  "value": "22-3",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kores_miasto]",
+                  "value": "Drugie3",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "dodaj-interesanta-do-dokumentu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wyslij-dokument",
+          "id": "f0656556-db67-4bc1-860d-f0c3fdb86ed7",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant_id",
+                  "value": "256",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sd/wyslij-dokument",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sd",
+                "wyslij-dokument"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant_id",
+                  "value": "256",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "/tomaszewskaanna/skrytka",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "79fb5b38-51e3-422d-9ad4-51ed609d8de9",
+      "description": "Zapisywanie danych"
+    },
+    {
+      "name": "Rejestry",
+      "item": [
+        {
+          "name": "Lista rejestrów",
+          "id": "3cf9ab7e-fc7c-4ede-8e9c-a324454f4761",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezd_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/rejestr/get-lista-rejestrow",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-rejestrow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista załączników w dokumencie rejestru",
+          "id": "4c3c9f9a-e83e-4a7c-b404-91183ec537b2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/rejestr/get-lista-zalacznikow?dokument_id=1356",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-zalacznikow"
+              ],
+              "query": [
+                {
+                  "key": "dokument_id",
+                  "value": "1356"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista dokumentów wybranego rejestru",
+          "id": "27768a50-9be7-42f0-8bb4-7a2f467ede54",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/rejestr/get-lista-dokumentow?rejestr_id=138",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-dokumentow"
+              ],
+              "query": [
+                {
+                  "key": "rejestr_id",
+                  "value": "138"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pobranie załącznika dokumentu rejestru",
+          "id": "3ed02109-ac50-41bd-acb2-6a051ad1082b",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/rejestr/get-attachment?file_id=&id_register_element=",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-attachment"
+              ],
+              "query": [
+                {
+                  "key": "file_id",
+                  "value": ""
+                },
+                {
+                  "key": "id_register_element",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "280d054c-cb7c-4d79-9b42-008a0c5718cc"
+    },
+    {
+      "name": "monitor.e-instytucja.pl",
+      "item": [
+        {
+          "name": "get-users-errors-statistic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Kod odpowiedzi\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "9a2c390b-decf-4c7a-9660-e791796af272"
+              }
+            }
+          ],
+          "id": "34742497-ebe7-4f3b-ae76-05c52362ab46",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/ustawienie/get-users-errors-statistic",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "ustawienie",
+                "get-users-errors-statistic"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "53ce49d9-e14c-4ca1-8a0a-0017274dddeb"
+    },
+    {
+      "name": "SIGID Portal pracowniczy",
+      "item": [
+        {
+          "name": "Lista użytkowników wszystkich",
+          "id": "22f8f152-f4ec-4682-88dd-9fd6c5c556c8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-uzytkownikow-wszystkich",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-uzytkownikow-wszystkich"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista stanowisk akceptujących wnioski",
+          "id": "a2b82107-61ca-4583-881a-b15e41a08b55",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-stanowisk-akceptujacych",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-stanowisk-akceptujacych"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista typów urlopów",
+          "id": "b4273b27-7b1a-4cfa-ab59-8b0fbf0b3776",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-typow-urlopow",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-typow-urlopow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Status wniosku",
+          "id": "dc8fa449-c1a9-4894-a831-093cffe41d11",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/status-wniosku?dokument_id=15788",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "status-wniosku"
+              ],
+              "query": [
+                {
+                  "key": "dokument_id",
+                  "value": "15788"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dodaj wniosek",
+          "id": "832ab56a-aba5-44aa-96a9-2f497aae897f",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1",
+                  "type": "text"
+                },
+                {
+                  "key": "lata_urlopu",
+                  "value": "2024,2025",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_dni_urlopu",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_godzin_urlopu",
+                  "value": "12",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_minut_urlopu",
+                  "value": "13",
+                  "type": "text"
+                },
+                {
+                  "key": "rodzaj_urlopu",
+                  "value": "Wniosek o urlop z tyt. opieki nad dzieckiem (art.188 KP)",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_start_data",
+                  "value": "2024-09-23",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_start_godzina",
+                  "value": "12:00",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_koniec_data",
+                  "value": "2024-09-24",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_koniec_godzina",
+                  "value": "01:00",
+                  "type": "text"
+                },
+                {
+                  "key": "uzasadnienie",
+                  "value": "test",
+                  "type": "text"
+                },
+                {
+                  "key": "zastepcy[0][user_id]",
+                  "value": "55",
+                  "type": "text"
+                },
+                {
+                  "key": "zastepcy[0][stanowisko_id]",
+                  "value": "stazystka_1",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][0][user_id]",
+                  "value": "43",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][0][stanowisko_id]",
+                  "value": "wojt_1",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][1][user_id]",
+                  "value": "60",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][1][stanowisko_id]",
+                  "value": "dyrek_wydzi_refer_planowa_przestrze_i_ochro_srodowi_1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][1][uzytkownik][0][user_id]",
+                  "value": "44",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][1][uzytkownik][0][stanowisko_id]",
+                  "value": "zaste_wojt_1",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/dodaj-wniosek",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "dodaj-wniosek"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "bf345d85-1bc5-4062-8f02-661d6b0d8321"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "97c84b0a-dd90-4a22-8d4e-318318906f52",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "b3f0249f-54cb-45fa-89a2-db850739bbc2",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "e3a9f8a7-914d-43aa-b7e4-7b2c0ff6ff1e",
+      "key": "ezdtoken",
+      "value": "3c8a2fdac0d5afeea0008fb3b96039892c955bd9",
+      "type": "string"
+    },
+    {
+      "id": "1dd2d426-8978-4597-abfa-41eeb5b5d140",
+      "key": "ezd_url",
+      "value": "olcom2.dev.ezd",
+      "type": "string"
+    }
+  ]
+}

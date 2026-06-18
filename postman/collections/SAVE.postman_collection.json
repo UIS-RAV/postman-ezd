@@ -1,0 +1,93 @@
+{
+  "info": {
+    "_postman_id": "f0a3bf47-87a9-4399-a9c1-f3380493fd65",
+    "name": "SAVE",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "https://olcom2.dev.ezd/api.php/dokument/save",
+      "id": "3659a040-d99c-46e6-9b29-9f199d65a600",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "authority",
+            "value": "olcom2.dev.ezd"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          },
+          {
+            "key": "origin",
+            "value": "https://olcom2.dev.ezd"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "sec-fetch-dest",
+            "value": "empty"
+          },
+          {
+            "key": "referer",
+            "value": "https://olcom2.dev.ezd/dokumenty/nowy-dokument/DF_1"
+          },
+          {
+            "key": "accept-language",
+            "value": "pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "cookie",
+            "value": "PHPSESSID=1mfilc2i6f8om81o41tf87h0tb"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "https://olcom2.dev.ezd/api.php/dokument/save",
+          "protocol": "https",
+          "host": [
+            "olcom2",
+            "dev",
+            "ezd"
+          ],
+          "path": [
+            "api.php",
+            "dokument",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

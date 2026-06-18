@@ -1,0 +1,1996 @@
+{
+  "info": {
+    "_postman_id": "10cca1be-b972-44c8-af4f-16235c9dc2e5",
+    "name": "do adresy.dev.ezd przez API SYSTHERM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "typ-dokumnetu",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "40af41c3-edc5-4437-b28d-7fd860de8ce2",
+                "exec": [
+                  "pm.test(\"Kod odpowiedzi\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "857bfcc9-ed91-449c-8e70-6af2212d3330",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/typ-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "typ-dokumentu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-przekazanych-na-stanowisko",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// pm.test(\"Kod odpowiedzi\", function () {",
+                  "    // var jsonData = pm.response.json();",
+                  "    // pm.expect(jsonData.code).to.eql(200);",
+                  "// });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "09000917-a6b9-40d4-8ae3-85e079c0e92a"
+              }
+            }
+          ],
+          "id": "9ea0c937-4fa1-4580-8da2-2741a1c21c87",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-przekazanych-na-stanowisko?stanowisko_id=wojt_1&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-dokumentow-przekazanych-na-stanowisko"
+              ],
+              "query": [
+                {
+                  "key": "symbol_dokumentu",
+                  "value": "92",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_dokumentu",
+                  "value": "qaz",
+                  "disabled": true
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "wniosek",
+                  "disabled": true
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-spraw",
+          "id": "01f4cf31-8015-41f8-b770-a01dc7a52021",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-spraw?stanowisko_id=dyrek_wydzi_refer_planowa_przestrze_i_ochro_srodowi_1&jrwa=0008&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-spraw"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "dyrek_wydzi_refer_planowa_przestrze_i_ochro_srodowi_1"
+                },
+                {
+                  "key": "jrwa",
+                  "value": "0008"
+                },
+                {
+                  "key": "symbol_sprawy",
+                  "value": "4.2018",
+                  "disabled": true
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "905",
+                  "disabled": true
+                },
+                {
+                  "key": "nazwa_interesanta",
+                  "value": "Andrz",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-podteczek",
+          "id": "d4aafcd0-8d0a-4a7e-8a79-073b013a5cdd",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-podteczek?stanowisko_id=wojt_1&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-podteczek"
+              ],
+              "query": [
+                {
+                  "key": "jrwa",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_podteczki",
+                  "value": "WG",
+                  "disabled": true
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-wszystkich-podteczek",
+          "id": "0b8c705f-1dc5-4f49-92e4-07e4253ba0ab",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-wszystkich-podteczek?jrwa=5345&symbol_podteczki=USC",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-wszystkich-podteczek"
+              ],
+              "query": [
+                {
+                  "key": "jrwa",
+                  "value": "5345"
+                },
+                {
+                  "key": "symbol_podteczki",
+                  "value": "USC"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-w-sprawie",
+          "id": "ba49a7c9-506c-4f3a-96d0-cbf2bb6789ab",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-w-sprawie?stanowisko_id=wojt_1&sprawa_id=3",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-dokumentow-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "3"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-zalacznikow-w-dokumencie",
+          "id": "f762ccf7-7f67-40dd-ba02-64f3a4f2f3da",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-zalacznikow-w-dokumencie?stanowisko_id=wojt_1&dokument_id=7913&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-zalacznikow-w-dokumencie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "7913"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-interesantow-w-dokumencie",
+          "id": "34a3356b-ea49-48f9-b394-c78ca3ebbd76",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-interesantow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=7913&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-interesantow-w-dokumencie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "7913"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "szczegoly-sprawy",
+          "id": "db92802e-1595-429f-9462-72ef321ddff6",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/szczegoly-sprawy?stanowisko_id=wojt_2&sprawa_id=2494&czy_lista_dokumentow=true&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "szczegoly-sprawy"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "2494"
+                },
+                {
+                  "key": "czy_lista_dokumentow",
+                  "value": "true"
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_tresc_zalacznikow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "szczegoly-dokumentu",
+          "id": "a8f2cc45-fc51-4747-8bca-10b5f7c21a58",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/szczegoly-dokumentu?stanowisko_id=wojt_1&dokument_id=15249&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "szczegoly-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "15249"
+                },
+                {
+                  "key": "czy_szczegoly_interesantow",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "czy_tresc_zalacznikow",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-zalacznik",
+          "id": "e4c4a262-4fe6-4d5d-8ea0-bda30fd78506",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/wez-zalacznik?stanowisko_id=wojt_2&zalacznik_id=225&symbol_komorki=Pi",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "wez-zalacznik"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2"
+                },
+                {
+                  "key": "zalacznik_id",
+                  "value": "225"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-interesanta",
+          "id": "54d9f7e3-71ca-479d-9d9e-93c76e48b836",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/wez-interesanta?interesant_id=70002",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "wez-interesanta"
+              ],
+              "query": [
+                {
+                  "key": "interesant_id",
+                  "value": "70002"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wez-oswiadczenia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "93af5dc2-4f62-4720-926d-63d63c45e7cd"
+              }
+            }
+          ],
+          "id": "a954f006-f9f5-4e15-aee3-916f5d3ffc0c",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/get-oswiadczenia?data_od=2022-11-01&data_do=2024-11-11&szablon=OSW_1",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "get-oswiadczenia"
+              ],
+              "query": [
+                {
+                  "key": "data_od",
+                  "value": "2022-11-01"
+                },
+                {
+                  "key": "data_do",
+                  "value": "2024-11-11"
+                },
+                {
+                  "key": "szablon",
+                  "value": "OSW_1"
+                }
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "526130d7-c8ae-470b-abda-a1ad9524815e",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/DominikaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "potwierdzenia-dostarczenia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "c5b5ea43-8e1a-4232-acc0-6e28d35f89d0"
+              }
+            }
+          ],
+          "id": "bf11a9d0-b748-4a3d-ab03-91e6356b8b8d",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/potwierdzenia-dostarczenia?dokumenty[0]=1847&dokumenty[1]=1855",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "potwierdzenia-dostarczenia"
+              ],
+              "query": [
+                {
+                  "key": "dokumenty[0]",
+                  "value": "1847"
+                },
+                {
+                  "key": "dokumenty[1]",
+                  "value": "1855"
+                }
+              ]
+            },
+            "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+          },
+          "response": [
+            {
+              "id": "5206aa59-b560-432f-8f7a-d9e53fe5556f",
+              "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-test",
+                    "e-instytucja",
+                    "pl"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2019-01-01"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2019-11-01"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Debug-Tag",
+                  "value": "5cc2261123e1d"
+                },
+                {
+                  "key": "X-Debug-Duration",
+                  "value": "71"
+                },
+                {
+                  "key": "X-Debug-Link",
+                  "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "https://scan-dev.e-instytucja.pl"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=98"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/EmiliaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "sprawa-statusy",
+          "id": "5a31ed59-536e-43d2-a892-9fd6a2d85dfd",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/sprawa-statusy",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "sprawa-statusy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-epuap",
+          "id": "191ff194-6b5d-4f11-85ed-35ca449dde80",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-epuap?limit=1",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-dokumentow-epuap"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "offset",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "date_from",
+                  "value": "2024-03-20",
+                  "disabled": true
+                },
+                {
+                  "key": "date_to",
+                  "value": "2024-03-20",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lista-dokumentow-dkp",
+          "id": "49b7d882-47d2-4d96-a1bd-302f09f195f6",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-dkp?limit=100&show_copies=1",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "lista-dokumentow-dkp"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "date_to",
+                  "value": "2024-07-27",
+                  "disabled": true
+                },
+                {
+                  "key": "date_type",
+                  "value": "dokument_data_otrzymania",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "desc",
+                  "disabled": true
+                },
+                {
+                  "key": "show_copies",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "27d504cb-9601-47df-b291-e29e82027a6d",
+      "description": "Czytanie danych"
+    },
+    {
+      "name": "POST",
+      "item": [
+        {
+          "name": "nowa-sprawa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b0d82aa3-48c0-451b-b062-f60daa885262",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"sprawa_id_test\", jsonData.data.id);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "05025f87-8285-4e86-ba1a-eb5dfb030dbd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{user_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanowisko}}"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "8339",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "{{tytul_sprawy}}"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "{{jrwa}}"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "{{termin_sprawy}}"
+                },
+                {
+                  "key": "stanowisko_symbol",
+                  "value": "KO",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dodaj_dokument_przychodzacy",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "18265",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "KO",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/geoinfo/nowa-sprawa",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "nowa-sprawa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "importuj-sprawe",
+          "id": "3ed4349f-31b3-442a-a226-3afa992c0ab5",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "8339",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "test_1"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0008"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "2019-05-28 18:20:05"
+                },
+                {
+                  "key": "numer_sprawy",
+                  "value": "203",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_sprawy",
+                  "value": "WG.0008.103.2022",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/importuj-sprawe",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "importuj-sprawe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nowy-dokument-w-sprawie",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c07bbb2f-60e6-444a-b41a-c267c6b56331",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody)\r",
+                  "pm.environment.set(\"dokument_id_test\", jsonData.data.dokument_id);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "5e5c796f-32da-4c6e-8efc-333f2620126b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "gt dok 1",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "8628",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "wniosek_o_udostepnienie_danych",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "to jest uwaga",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_opis",
+                  "value": "to jest opis",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/nowy-dokument-w-sprawie?sprawa_id=7434",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "nowy-dokument-w-sprawie"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "starosta_2",
+                  "disabled": true
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "7434"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "test api dokument",
+                  "disabled": true
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "decyzja",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-dokument-przychodzacy",
+          "id": "46a42420-aefc-47dd-9d6b-1d437b28565a",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "dokument_tytul",
+                  "value": "dok geo 3",
+                  "type": "text"
+                },
+                {
+                  "key": "typ_dokumentu",
+                  "value": "pismo",
+                  "type": "text"
+                },
+                {
+                  "key": "data_wplywu",
+                  "value": "2024-06-20",
+                  "type": "text"
+                },
+                {
+                  "key": "data_widniejaca_na_pismie",
+                  "value": "2024-03-29",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_czas_otrzymania",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "data_nadania",
+                  "value": "2024-03-29",
+                  "type": "text"
+                },
+                {
+                  "key": "utworz_sprawe",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "tytul_sprawy",
+                  "value": "testowa sprawa GEO 3",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_jrwa",
+                  "value": "0000",
+                  "type": "text"
+                },
+                {
+                  "key": "termin_sprawy",
+                  "value": "2024-12-12",
+                  "type": "text"
+                },
+                {
+                  "key": "podteczka_id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_uwagi",
+                  "value": "uwaga 12",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-dokument-przychodzacy",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-dokument-przychodzacy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zalacznik-do-dokumentu",
+          "id": "3c6cdaf1-9212-4b83-9474-a96bfd1768a9",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "file_mime",
+                  "value": "application/pdf",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "eInstytucja2024-06-20.log",
+                  "type": "text"
+                },
+                {
+                  "key": "file_content",
+                  "value": "sdsdsds",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "15226",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-zalacznik-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-zalacznik-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "disabled": true
+                },
+                {
+                  "key": "file_name",
+                  "value": "arrow_left_3.png",
+                  "disabled": true
+                },
+                {
+                  "key": "file_content",
+                  "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                  "disabled": true
+                },
+                {
+                  "key": "file_mime",
+                  "value": "image/png",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-zarejestrowany-dokument-w-sprawie",
+          "id": "08d636e4-4d4b-4400-8059-835012125011",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "15239",
+                  "type": "text"
+                },
+                {
+                  "key": "sprawa_id",
+                  "value": "8628",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-zarejestrowany-dokument-w-sprawie",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-zarejestrowany-dokument-w-sprawie"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dodaj-interesanta-do-dokumentu",
+          "id": "a65cc5d2-98ec-4e72-a2b7-81394094ae2c",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "interesant[imie]",
+                  "value": "Anna",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "Kowalska",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "Anna Kowalska",
+                  "type": "text"
+                },
+                {
+                  "key": "interesan[nip]",
+                  "value": "1549618586",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "63072624486",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "Jasna",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "22-100",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "Chełm",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "osoba",
+                  "type": "text"
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "15249",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-interesanta-do-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "dodaj-interesanta-do-dokumentu"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[interesant_id]",
+                  "value": "256",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[typ]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[imie]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwisko]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nazwa]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nip]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[pesel]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[ulica]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_domu]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[nr_mieszkania]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[kod_pocztowy]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant[miasto]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wyslij-dokument",
+          "id": "10b68044-27eb-43ff-824f-a1c9111bc007",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "interesant_id",
+                  "value": "256",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/wyslij-dokument",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "wyslij-dokument"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "{{stanoiwsko_id}}",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "1851",
+                  "disabled": true
+                },
+                {
+                  "key": "interesant_id",
+                  "value": "256",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[0]",
+                  "value": "/tomaszewskaanna/skrytka",
+                  "disabled": true
+                },
+                {
+                  "key": "skrytki[1]",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sprawa-zmien-status",
+          "id": "0613987e-bbe3-466a-903e-be12bc82f4b3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "sprawa_id",
+                  "value": "7431",
+                  "type": "text"
+                },
+                {
+                  "key": "status_id",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "stanowisko_id",
+                  "value": "supe_admi_1",
+                  "type": "text"
+                },
+                {
+                  "key": "komentarz",
+                  "value": "test",
+                  "type": "text"
+                },
+                {
+                  "key": "symbol_komorki",
+                  "value": "Pi",
+                  "type": "text"
+                },
+                {
+                  "key": "bez_weryfikacji",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/sprawa-zmien-status",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "sprawa-zmien-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "potwierdz-pobranie-dokumentu",
+          "id": "fc84dd9d-e20a-442a-8ffe-0e08c7381599",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "dokument_id",
+                  "value": "18263",
+                  "type": "text"
+                },
+                {
+                  "key": "typ",
+                  "value": "epuap",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/geoinfo/potwierdz-pobranie-dokumentu",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "geoinfo",
+                "potwierdz-pobranie-dokumentu"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "368b15e7-8108-409c-a128-3c82da0d7350",
+      "description": "Zapisywanie danych"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "c9e2081f-4104-4b02-8c1c-691efdc15830",
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "9e28e724-bd75-454c-a9d0-47e75750b603",
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "25e28c4b-724b-4354-ab9b-442fc793c8b8",
+      "key": "ezdtoken",
+      "value": "29b135293efa43af7258c2422a05ebd111da474b"
+    },
+    {
+      "id": "9b3bffe4-36d6-4d99-96a8-bb0e53cbcfac",
+      "key": "ezd_url",
+      "value": "adresy.dev.ezd"
+    },
+    {
+      "id": "002aa9f2-3582-49c0-8465-bf95823e8243",
+      "key": "data_wplywu",
+      "value": "2024-08-16"
+    }
+  ]
+}

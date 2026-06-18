@@ -1,0 +1,558 @@
+{
+  "info": {
+    "_postman_id": "befd2b50-0868-4031-86a9-3209cac26cf9",
+    "name": "UslugaBIRzewnPubl",
+    "description": "\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GetValue",
+      "id": "267d7532-c66e-47c0-bb9d-e3ab96199019",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/2014/07/IUslugaBIR/GetValue"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <GetValue xmlns=\"http://CIS/BIR/2014/07\">\n      <pNazwaParametru>string</pNazwaParametru>\n    </GetValue>\n  </soap12:Body>\n</soap12:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "aadf68ef-9eab-4d6c-9f20-4140f5c3dbfe",
+          "name": "GetValue response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/2014/07/IUslugaBIR/GetValue"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <GetValue xmlns=\"http://CIS/BIR/2014/07\">\n      <pNazwaParametru>string</pNazwaParametru>\n    </GetValue>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <GetValueResponse xmlns=\"http://CIS/BIR/2014/07\">\n      <GetValueResult>string</GetValueResult>\n    </GetValueResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    },
+    {
+      "name": "Zaloguj",
+      "id": "d428fe8f-c1e4-40a9-8282-63abc0b2c1f2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/soap+xml"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Zaloguj"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:ns=\"http://CIS/BIR/PUBL/2014/07\">\n<soap:Header xmlns:wsa=\"http://www.w3.org/2005/08/addressing\">\n<wsa:Action>http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Zaloguj</wsa:Action>\n<wsa:To>https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc</wsa:To>\n</soap:Header>\n<soap:Body>\n<ns:Zaloguj>\n<ns:pKluczUzytkownika>abcde12345abcde12345</ns:pKluczUzytkownika>\n</ns:Zaloguj>\n</soap:Body>\n</soap:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "bef7cee1-66a6-4c36-98c6-241426703960",
+          "name": "Zaloguj response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Zaloguj"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <Zaloguj xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pKluczUzytkownika>string</pKluczUzytkownika>\n    </Zaloguj>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ZalogujResponse xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <ZalogujResult>string</ZalogujResult>\n    </ZalogujResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    },
+    {
+      "name": "Wyloguj",
+      "id": "b2aef6a0-437e-4916-b335-91d04f1efd36",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Wyloguj"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <Wyloguj xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pIdentyfikatorSesji>string</pIdentyfikatorSesji>\n    </Wyloguj>\n  </soap12:Body>\n</soap12:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "ba16060a-85bc-4d46-8827-091ac2a8c637",
+          "name": "Wyloguj response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Wyloguj"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <Wyloguj xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pIdentyfikatorSesji>string</pIdentyfikatorSesji>\n    </Wyloguj>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <WylogujResponse xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <WylogujResult>true</WylogujResult>\n    </WylogujResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    },
+    {
+      "name": "DaneSzukajPodmioty",
+      "id": "f7f3711b-fb97-40e9-bcb7-d2f03ea92dae",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/soap+xml"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DaneSzukajPodmioty"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:ns=\"http://CIS/BIR/PUBL/2014/07\">\n<soap:Header xmlns:wsa=\"http://www.w3.org/2005/08/addressing\">\n<wsa:Action>http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DaneSzukajPodmioty</wsa:Action>\n<wsa:To>https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc</wsa:To>\n</soap:Header>\n<soap:Body>\n    <ns:DaneSzukajPodmioty>\n        <ns:pParametryWyszukiwania>\n            <dat:Nip>5261040828</dat:Nip>\n        </ns:pParametryWyszukiwania>\n    </ns:DaneSzukajPodmioty>\n</soap:Body>\n</soap:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc?sid=nhbh359uffguf2uh5k7d",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ],
+          "query": [
+            {
+              "key": "sid",
+              "value": "nhbh359uffguf2uh5k7d"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "af365351-f983-4cf9-8336-2892e22a5b94",
+          "name": "DaneSzukajPodmioty response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DaneSzukajPodmioty"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <DaneSzukajPodmioty xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pParametryWyszukiwania>\n        <Krs>string</Krs>\n        <Krsy>string</Krsy>\n        <Nip>string</Nip>\n        <Nipy>string</Nipy>\n        <Regon>string</Regon>\n        <Regony14zn>string</Regony14zn>\n        <Regony9zn>string</Regony9zn>\n      </pParametryWyszukiwania>\n    </DaneSzukajPodmioty>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <DaneSzukajPodmiotyResponse xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <DaneSzukajPodmiotyResult>string</DaneSzukajPodmiotyResult>\n    </DaneSzukajPodmiotyResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    },
+    {
+      "name": "DanePobierzPelnyRaport",
+      "id": "f9289a60-162a-4a87-b3a6-e636f8164c7d",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DanePobierzPelnyRaport"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <DanePobierzPelnyRaport xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pRegon>string</pRegon>\n      <pNazwaRaportu>string</pNazwaRaportu>\n    </DanePobierzPelnyRaport>\n  </soap12:Body>\n</soap12:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "fbc32143-c44e-499d-bc0d-3c2653a0bde2",
+          "name": "DanePobierzPelnyRaport response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DanePobierzPelnyRaport"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <DanePobierzPelnyRaport xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pRegon>string</pRegon>\n      <pNazwaRaportu>string</pNazwaRaportu>\n    </DanePobierzPelnyRaport>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <DanePobierzPelnyRaportResponse xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <DanePobierzPelnyRaportResult>string</DanePobierzPelnyRaportResult>\n    </DanePobierzPelnyRaportResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    },
+    {
+      "name": "DanePobierzRaportZbiorczy",
+      "id": "e24029e8-fac9-4fc9-a162-b07661d8fe2e",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DanePobierzRaportZbiorczy"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <DanePobierzRaportZbiorczy xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pDataRaportu>string</pDataRaportu>\n      <pNazwaRaportu>string</pNazwaRaportu>\n    </DanePobierzRaportZbiorczy>\n  </soap12:Body>\n</soap12:Envelope>\n",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{e3BaseUrl}}/wsBIR/UslugaBIRzewnPubl.svc",
+          "host": [
+            "{{e3BaseUrl}}"
+          ],
+          "path": [
+            "wsBIR",
+            "UslugaBIRzewnPubl.svc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "4fd9c011-1bd4-4470-b63f-a81c111ce88c",
+          "name": "DanePobierzRaportZbiorczy response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DanePobierzRaportZbiorczy"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Header>\n    <wsse:Security soap12:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"/>\n  </soap12:Header>\n  <soap12:Body>\n    <DanePobierzRaportZbiorczy xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <pDataRaportu>string</pDataRaportu>\n      <pNazwaRaportu>string</pNazwaRaportu>\n    </DanePobierzRaportZbiorczy>\n  </soap12:Body>\n</soap12:Envelope>\n",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc",
+              "protocol": "https",
+              "host": [
+                "wyszukiwarkaregontest",
+                "stat",
+                "gov",
+                "pl"
+              ],
+              "path": [
+                "wsBIR",
+                "UslugaBIRzewnPubl.svc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <DanePobierzRaportZbiorczyResponse xmlns=\"http://CIS/BIR/PUBL/2014/07\">\n      <DanePobierzRaportZbiorczyResult>string</DanePobierzRaportZbiorczyResult>\n    </DanePobierzRaportZbiorczyResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "d185e260-56f0-49a1-a2fa-97763aedb80e",
+      "key": "e3BaseUrl",
+      "value": "https://wyszukiwarkaregontest.stat.gov.pl",
+      "type": "any"
+    }
+  ]
+}

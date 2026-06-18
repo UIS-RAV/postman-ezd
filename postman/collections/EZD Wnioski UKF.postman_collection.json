@@ -1,0 +1,663 @@
+{
+  "info": {
+    "_postman_id": "14c65bc3-b6cc-4201-9e31-2402cb3ff6c5",
+    "name": "EZD Wnioski UKF",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "EZD: create",
+      "id": "12f9f88e-1666-4d51-a24e-4cdee1891771",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezdtoken",
+            "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "wniosek[id]",
+              "value": "29",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[domain]",
+              "value": "devpko",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[regon]",
+              "value": "432256937",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[nazwa]",
+              "value": "STOWARZYSZENIE \"WSPÓLNE KORZENIE\"",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[krs]",
+              "value": "0000000623",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[nip]",
+              "value": "9462306689",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[miejscowosc]",
+              "value": "Lublin",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[ulica]",
+              "value": "ul. Rynek",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[budynek]",
+              "value": "18",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[lokal]",
+              "value": "P.12",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[kod_pocztowy]",
+              "value": "20-111",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[telefon]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[email]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[skrytka]",
+              "value": "/gtatara/domyslna",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[data]",
+              "value": "2022-02-10 14:12:06",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[ip]",
+              "value": "10.10.10.213",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[status]",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_imie]",
+              "value": "Grzegorz",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_nazwisko]",
+              "value": "Tatara",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_pesel]",
+              "value": "44051401458",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_telefon]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_email]",
+              "value": "grzegorz.tatara@e-instytucja.pl",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[wnioskodawca_skrytka]",
+              "value": "/gtatara/domyslna",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[pismo_id]",
+              "value": "245014",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[podpis]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[id_firma]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[uwagi]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[dane_regon]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[zmiana_user]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[zmiana_data]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "wniosek[pko_id]",
+              "value": "36",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][wniosek_id]",
+              "value": "29",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][status]",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][imie]",
+              "value": "Grzegorz",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][nazwisko]",
+              "value": "Tatara",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][pesel]",
+              "value": "44051401458",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][email]",
+              "value": "grzegorz.tatara@e-instytucja.pl",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][id]",
+              "value": "11",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][user_id]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][pko_id]",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][wniosek_id]",
+              "value": "29",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][status]",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][imie]",
+              "value": "Kowalska",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][nazwisko]",
+              "value": "Anna",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][pesel]",
+              "value": "44051401458",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][email]",
+              "value": "anna@kowalska.pl",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][id]",
+              "value": "12",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][user_id]",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][pko_id]",
+              "value": "12",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://olcom.dev.ezd/api.php/api/wniosek/create",
+          "protocol": "https",
+          "host": [
+            "olcom",
+            "dev",
+            "ezd"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "wniosek",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EZD: discard",
+      "id": "09a04b83-3e93-4604-9aba-dd4912e8079a",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezdtoken",
+            "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "wniosek_id",
+              "value": "83",
+              "type": "text"
+            },
+            {
+              "key": "domain",
+              "value": "devpko",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://olcom.dev.ezd/api.php/api/wniosek/discard",
+          "protocol": "https",
+          "host": [
+            "olcom",
+            "dev",
+            "ezd"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "wniosek",
+            "discard"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EZD: accept",
+      "id": "b320343a-195a-409e-9be6-f6cba2421c97",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezdtoken",
+            "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "wniosek_id",
+              "value": "36",
+              "type": "text"
+            },
+            {
+              "key": "domain",
+              "value": "devpko",
+              "type": "text"
+            },
+            {
+              "key": "id_firma",
+              "value": "100",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][id]",
+              "value": "1",
+              "description": "zaisane w kontekst_wniosek_pozycje: pko_kontekst_wniosek_pozycje_id",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][status]",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][powod]",
+              "value": "bo tak",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][id]",
+              "value": "12",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][status]",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[1][powod]",
+              "value": "bo nie",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://gtatara.dev.ezd/api.php/api/wniosek/accept",
+          "protocol": "https",
+          "host": [
+            "gtatara",
+            "dev",
+            "ezd"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "wniosek",
+            "accept"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PKO: discard-ukf",
+      "id": "42e93d68-aa62-4bdd-98cc-081a1fdddfb9",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-AUTH",
+            "value": "d5fd69c032845ad264acd89e00c952fae84098b0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "wniosek_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "instance_id",
+              "value": "devpko",
+              "type": "text"
+            },
+            {
+              "key": "powod",
+              "value": "niepoprawny 2",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devpko.e-instytucja.pl/api/discard-ukf",
+          "protocol": "https",
+          "host": [
+            "devpko",
+            "e-instytucja",
+            "pl"
+          ],
+          "path": [
+            "api",
+            "discard-ukf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PKO: accept-ukf",
+      "id": "7b880703-3a4c-44a4-9bd7-3e6be7c4233a",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-AUTH",
+            "value": "e2a616a2fe9583f98455c600f127d5bca2aa01e9",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "wniosek_id",
+              "value": "12",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][pko_kontekst_wniosek_pozycje_id]",
+              "value": "12",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][status]",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][nazwisko]",
+              "value": "Tatara",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][imie]",
+              "value": "Grzegorz",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][pesel]",
+              "value": "44051401458",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][powod]",
+              "value": "to tak",
+              "type": "text"
+            },
+            {
+              "key": "pozycje[0][ezd_kontekst_wniosek_pozycje_id]",
+              "value": "57",
+              "type": "text"
+            },
+            {
+              "key": "",
+              "value": "666",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devpko.e-instytucja.pl/api/accept-ukf",
+          "protocol": "https",
+          "host": [
+            "devpko",
+            "e-instytucja",
+            "pl"
+          ],
+          "path": [
+            "api",
+            "accept-ukf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PKO: save-inbox-document",
+      "id": "6ca970eb-c5a5-4b24-a45a-2800c0d6c1a7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-AUTH",
+            "value": "5e0891e3059df71b9f55562faa267f71b6f5c16c",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "pesel",
+              "value": "44051401458",
+              "type": "text"
+            },
+            {
+              "key": "pko_user_id",
+              "value": "16976",
+              "type": "text"
+            },
+            {
+              "key": "form[content]",
+              "value": "<doc>test</doc>",
+              "type": "text"
+            },
+            {
+              "key": "form[title]",
+              "value": "ble2",
+              "type": "text"
+            },
+            {
+              "key": "form[date]",
+              "value": "ble2",
+              "type": "text"
+            },
+            {
+              "key": "form[symbol]",
+              "value": "ble2",
+              "type": "text"
+            },
+            {
+              "key": "form[pko_id]",
+              "value": "''",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devpko.e-instytucja.pl/api/save-inbox-document",
+          "protocol": "https",
+          "host": [
+            "devpko",
+            "e-instytucja",
+            "pl"
+          ],
+          "path": [
+            "api",
+            "save-inbox-document"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PKO: check-document-sender-is-company",
+      "id": "5df3a392-4b33-4365-bc3a-a07d9882f0bc",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-AUTH",
+            "value": "5e0891e3059df71b9f55562faa267f71b6f5c16c",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "dokument_id",
+              "value": "245098",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devpko.e-instytucja.pl/api/check-document-sender-is-company",
+          "protocol": "https",
+          "host": [
+            "devpko",
+            "e-instytucja",
+            "pl"
+          ],
+          "path": [
+            "api",
+            "check-document-sender-is-company"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

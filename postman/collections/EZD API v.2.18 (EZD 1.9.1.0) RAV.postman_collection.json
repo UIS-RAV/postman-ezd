@@ -1,0 +1,5050 @@
+{
+  "info": {
+    "_postman_id": "fcc5437c-503a-41ae-8450-79c3b71ec262",
+    "name": "EZD API v.2.18 (EZD 1.9.1.0) RAV",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Rejestry",
+      "item": [
+        {
+          "name": "Lista rejestrów",
+          "id": "07ea8661-4318-47ae-9ca5-39ad09ff44d7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{pilsudski_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/rejestr/get-lista-rejestrow",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-rejestrow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista dokumentów wybranego rejestru",
+          "id": "e3af16e7-9f97-4b51-85f7-623116159d28",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{pilsudski_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/rejestr/get-lista-dokumentow?rejestr_id=148",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-dokumentow"
+              ],
+              "query": [
+                {
+                  "key": "rejestr_id",
+                  "value": "148"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista załączników w dokumencie rejestru",
+          "id": "34b99965-1c2f-441b-a1a7-d4661df8103b",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{pilsudski_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/rejestr/get-lista-zalacznikow?dokument_id=61525",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-lista-zalacznikow"
+              ],
+              "query": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_2",
+                  "disabled": true
+                },
+                {
+                  "key": "dokument_id",
+                  "value": "61525"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pobranie załącznika dokumentu rejestru",
+          "id": "eac68ef3-6676-4b67-9eea-a8426cc7c9f8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{pilsudski_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{instancja_url}}/api.php/api/rejestr/get-attachment?file_id=85794&id_register_element=1895",
+              "protocol": "https",
+              "host": [
+                "{{instancja_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "rejestr",
+                "get-attachment"
+              ],
+              "query": [
+                {
+                  "key": "file_id",
+                  "value": "85794"
+                },
+                {
+                  "key": "id_register_element",
+                  "value": "1895"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "71e2ecda-76b1-48de-96d8-cd39de2177eb"
+    },
+    {
+      "name": "monitor.e-instytucja.pl",
+      "item": [
+        {
+          "name": "get-users-errors-statistic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Kod odpowiedzi\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "id": "9045c0fe-4190-4a60-83ef-b504ed8d1a57"
+              }
+            }
+          ],
+          "id": "ca8dc45d-0838-4e28-ac98-2ca88b283358",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/ustawienie/get-users-errors-statistic",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "ustawienie",
+                "get-users-errors-statistic"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "4f0311b3-2ee5-462a-a169-d59a3b345755"
+    },
+    {
+      "name": "SIGID Portal pracowniczy",
+      "item": [
+        {
+          "name": "Lista użytkowników wszystkich",
+          "id": "68028c8b-c1c8-4709-bcdc-409602b9a9d2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-uzytkownikow-wszystkich",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-uzytkownikow-wszystkich"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista stanowisk akceptujących wnioski",
+          "id": "655e3d0d-d4af-4d7c-8b0a-a1a3bae640b7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-stanowisk-akceptujacych",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-stanowisk-akceptujacych"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lista typów urlopów",
+          "id": "f93ea178-858e-4cbc-9b9b-2e2529395fac",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/lista-typow-urlopow",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "lista-typow-urlopow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Status wniosku",
+          "id": "3a79e1d0-4047-44b6-997e-024108478acd",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/status-wniosku?dokument_id=15788",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "status-wniosku"
+              ],
+              "query": [
+                {
+                  "key": "dokument_id",
+                  "value": "15788"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dodaj wniosek",
+          "id": "3ee5fbe8-e670-4487-9c31-b17c607c36b6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ezdtoken",
+                "value": "{{ezdtoken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "stanowisko_id",
+                  "value": "wojt_1",
+                  "description": "(wymagane) ID stanowiska pracownika",
+                  "type": "text"
+                },
+                {
+                  "key": "lata_urlopu",
+                  "value": "2024,2025",
+                  "description": "Rok lub lata oddzielone „przecinkiem”. Walidacja czy w rok jest w przedziale: rok poprzedni – rok następny. Jeżeli nie zostanie podany to system nie zapisze informacji o roku",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_dni_urlopu",
+                  "value": "2",
+                  "description": "Liczba dni urlopu. Jeżeli nie zostanie podana to przypisana zostanie wartość 0",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_godzin_urlopu",
+                  "value": "12",
+                  "description": "Jeżeli nie zostanie podana to system przypisze wartość 0",
+                  "type": "text"
+                },
+                {
+                  "key": "liczba_minut_urlopu",
+                  "value": "13",
+                  "description": "Jeżeli nie zostanie podana to system przypisze wartość 0",
+                  "type": "text"
+                },
+                {
+                  "key": "rodzaj_urlopu",
+                  "value": "Wniosek o urlop z tyt. opieki nad dzieckiem (art.188 KP)",
+                  "description": "(wymagane) Rodzaj urlopu. Wartość pobrana ze słownika typów urlopów",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_start_data",
+                  "value": "2024-09-23",
+                  "description": "(wymagane) Data rozpoczęcia urlopu",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_start_godzina",
+                  "value": "12:00",
+                  "description": "Godzina rozpoczęcia w formacie H:i np. 12:00",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_koniec_data",
+                  "value": "2024-09-24",
+                  "description": "(wymagane) Data zakończenia urlopu",
+                  "type": "text"
+                },
+                {
+                  "key": "urlop_koniec_godzina",
+                  "value": "01:00",
+                  "description": "Godzina zakończenia urlopu w formacie H:i np. 12:00",
+                  "type": "text"
+                },
+                {
+                  "key": "uzasadnienie",
+                  "value": "test",
+                  "description": "Pole tekstowe",
+                  "type": "text"
+                },
+                {
+                  "key": "zastepcy[0][user_id]",
+                  "value": "55",
+                  "description": "Umożliwia wskazanie kilku zastępców. Wymagane jest podanie tablicy. Każdy element musi posiadać informacje o użytkowniku i stanowisku (poniżej przykład definicji)",
+                  "type": "text"
+                },
+                {
+                  "key": "zastepcy[0][stanowisko_id]",
+                  "value": "stazystka_1",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][0][user_id]",
+                  "value": "43",
+                  "description": "(wymagany co najmniej jeden akceptant) Umożliwia wskazane kroków akceptacji (wielu). W każdym kroku możemy wskazać dowolną liczbę użytkowników. Każdy z użytkowników musi posiadać informacje o identyfikatorze i stanowisku. Każdy wskazany użytkownik będzie musiał zaakceptować wniosek (poniżej przykład definicji)",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][0][stanowisko_id]",
+                  "value": "wojt_1",
+                  "type": "text"
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][1][user_id]",
+                  "value": "60",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][0][uzytkownik][1][stanowisko_id]",
+                  "value": "dyrek_wydzi_refer_planowa_przestrze_i_ochro_srodowi_1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][1][uzytkownik][0][user_id]",
+                  "value": "44",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "akceptacja[etap][1][uzytkownik][0][stanowisko_id]",
+                  "value": "zaste_wojt_1",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{ezd_url}}/api.php/api/sigid/dodaj-wniosek",
+              "protocol": "https",
+              "host": [
+                "{{ezd_url}}"
+              ],
+              "path": [
+                "api.php",
+                "api",
+                "sigid",
+                "dodaj-wniosek"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "0c9bfd8f-b634-4ae6-a568-36b40014aa07"
+    },
+    {
+      "name": "global",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "dkp-dokumenty",
+              "id": "8d39a537-1eaa-436a-9fb9-69ca73b51109",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/dokumenty-dkp?system_key=radix_forms&kod_formularza=RACH&limit=100&offset=0&powiazany_ze_sprawa=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "dokumenty-dkp"
+                  ],
+                  "query": [
+                    {
+                      "key": "system_key",
+                      "value": "radix_forms"
+                    },
+                    {
+                      "key": "kod_formularza",
+                      "value": "RACH"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "powiazany_ze_sprawa",
+                      "value": "0"
+                    },
+                    {
+                      "key": "data_rejestracji_od",
+                      "value": "2025-11-01",
+                      "description": "(opcjonalnie) Data rejestracji od",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_rejestracji_do",
+                      "value": "2025-11-01",
+                      "description": "(opcjonalnie) Data rejestracji od",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dkp-systemy",
+              "id": "25c065cf-9300-4259-97b9-de1f01a21a02",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/dkp-systemy",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "dkp-systemy"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dkp-system-lista-formularzy",
+              "id": "0f4b4d51-1269-4ccb-8aa2-c505b3ab7c7f",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/dkp-system-lista-formularzy?system_key=radix_forms",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "dkp-system-lista-formularzy"
+                  ],
+                  "query": [
+                    {
+                      "key": "system_key",
+                      "value": "radix_forms"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sprawy",
+              "id": "019193db-3b52-47c5-a1be-3f15900d7d06",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezdapitoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/global/sprawy?pesel=94100838746&symbol=Fn.0001.64.2025&data_utworzenia_od=2025-11-01&data_utworzenia_do=2025-11-03&limit=100&offset=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "sprawy"
+                  ],
+                  "query": [
+                    {
+                      "key": "pesel",
+                      "value": "94100838746",
+                      "description": "PESEL interesanta"
+                    },
+                    {
+                      "key": "nip",
+                      "value": "3414669511",
+                      "description": "NIP interesanta",
+                      "disabled": true
+                    },
+                    {
+                      "key": "regon",
+                      "value": "892466354",
+                      "description": "REGON interesanta",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol",
+                      "value": "Fn.0001.64.2025",
+                      "description": "konkretny symbol"
+                    },
+                    {
+                      "key": "data_utworzenia_od",
+                      "value": "2025-11-01",
+                      "description": "Data utworzenia sprawy od"
+                    },
+                    {
+                      "key": "data_utworzenia_do",
+                      "value": "2025-11-03",
+                      "description": "Data utworzenia sprawy do"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100",
+                      "description": "wymagane, min: 1, max 100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0",
+                      "description": "wymagane, domyślnie:0"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sprawa-szczegoly",
+              "id": "1eb7f18e-82aa-4777-bbf2-16596273f065",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/sprawa-szczegoly?sprawa_id=17639&czy_lista_dokumentow=1&czy_szczegoly_interesantow=1&czy_tresc_zalacznikow=1",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "sprawa-szczegoly"
+                  ],
+                  "query": [
+                    {
+                      "key": "sprawa_id",
+                      "value": "17639",
+                      "description": "Identyfikator sprawy"
+                    },
+                    {
+                      "key": "czy_lista_dokumentow",
+                      "value": "1",
+                      "description": "1/0 Czy zwrócić dokumenty"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "1",
+                      "description": "1/0 Czy zwrócić szczegóły interesantów"
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "1",
+                      "description": "1/0 Czy zwrócić załączniki"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dokument-szczegoly",
+              "id": "900a2663-fb15-4dc5-be82-1e41bea6570a",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/dokument-szczegoly?dokument_id=21101&czy_szczegoly_interesantow=1&czy_tresc_zalacznikow=1",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "dokument-szczegoly"
+                  ],
+                  "query": [
+                    {
+                      "key": "dokument_id",
+                      "value": "21101",
+                      "description": "Identyfikator dokumentu"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "1",
+                      "description": "1/0 Czy zwrócić szczegóły interesantów"
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "1",
+                      "description": "1/0 Czy zwrócić załączniki"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "interesant-szczegoly",
+              "id": "bb990179-768b-4c46-9f52-9261af19ba6c",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezdapitoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/global/interesant-szczegoly?interesant_id=70002",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "interesant-szczegoly"
+                  ],
+                  "query": [
+                    {
+                      "key": "interesant_id",
+                      "value": "70002",
+                      "description": "Identyfikator interesanta"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "zalacznik-szczegoly",
+              "id": "3d3485aa-1241-4156-9120-12f832249585",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezd-api-token",
+                    "value": "{{ezd_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/global/zalacznik-szczegoly?zalacznik_id=51588",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "global",
+                    "zalacznik-szczegoly"
+                  ],
+                  "query": [
+                    {
+                      "key": "zalacznik_id",
+                      "value": "51588",
+                      "description": "Identyfikator załącznika"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "c1435f1a-6d93-46fd-9094-71df4950235a"
+        },
+        {
+          "name": "POST",
+          "item": [],
+          "id": "5ce2b115-a259-4fed-8ec7-b1018257e78b"
+        }
+      ],
+      "id": "e3369323-2be2-4d59-89d4-b18748acbe9f"
+    },
+    {
+      "name": "SD",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "typ-dokumnetu",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "64c07db7-1add-47bc-92fc-d1b1dccc40da",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "7a95b82d-17ff-4158-9ed2-ae8aff57acdb",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{pilsudski_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/typ-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "typ-dokumentu"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-przekazanych-na-stanowisko",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "e7b6f269-b819-4194-9d2e-7141086e4e61"
+                  }
+                }
+              ],
+              "id": "d5ff0673-7b39-4417-b099-7cc6d2ac6552",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/lista-dokumentow-przekazanych-na-stanowisko?symbol_dokumentu=&tytul_dokumentu=&typ_dokumentu=wniosek&stanowisko_id=wojt_1&data_utworzenia_od=2024-11-07&data_utworzenia_do=2024-11-07",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-dokumentow-przekazanych-na-stanowisko"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbol_dokumentu",
+                      "value": "",
+                      "description": "Symbol dokumentu"
+                    },
+                    {
+                      "key": "tytul_dokumentu",
+                      "value": "",
+                      "description": "Tytuł dokumentu"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "wniosek",
+                      "description": "ID typu dokumentu"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane!) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "data_utworzenia_od",
+                      "value": "2024-11-07",
+                      "description": "Data utworzenia w systemie od"
+                    },
+                    {
+                      "key": "data_utworzenia_do",
+                      "value": "2024-11-07",
+                      "description": "Data utworzenia w systemie do"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-spraw",
+              "id": "bb659509-967e-40b4-a099-30bc7d8c5c0b",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "ezd-api-token",
+                    "value": "27213a7dce2ae0be477ace8d0d461006",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "https://ezd-1-9-3-0.dev.ezd/api.php/api/sd/lista-spraw?stanowisko_id=stanowi_ds_wymia_podat_i_opla_wiejsk_1&data_utworzenia_od=2026-01-01&uwzglednij_stanowiska_zastepowane=1",
+                  "protocol": "https",
+                  "host": [
+                    "ezd-1-9-3-0",
+                    "dev",
+                    "ezd"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-spraw"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "jrwa",
+                      "value": "3111",
+                      "description": "(wymagane) JRWA",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_sprawy",
+                      "value": "WG.0008.4.2024",
+                      "description": "Symbol sprawy",
+                      "disabled": true
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "905",
+                      "description": "ID podteczki",
+                      "disabled": true
+                    },
+                    {
+                      "key": "nazwa_interesanta",
+                      "value": "Andrz",
+                      "description": "Nazwa interesanta",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_utworzenia_od",
+                      "value": "2026-01-01",
+                      "description": "Data utworzenia sprawy od"
+                    },
+                    {
+                      "key": "data_utworzenia_do",
+                      "value": "2024-11-18",
+                      "description": "Data utworzenia sprawy do",
+                      "disabled": true
+                    },
+                    {
+                      "key": "ignoruj_status_sprawy",
+                      "value": "0",
+                      "description": "Czy zwracać dane także spraw zakończonych",
+                      "disabled": true
+                    },
+                    {
+                      "key": "uwzglednij_stanowiska_zastepowane",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-spraw-interesanta",
+              "id": "e2b6dbed-29b1-4e74-b657-3a41f5033423",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/lista-spraw-interesanta?pesel=80101661272",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-spraw-interesanta"
+                  ],
+                  "query": [
+                    {
+                      "key": "pesel",
+                      "value": "80101661272",
+                      "description": "(wymagane) Pesel interesanta"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-podteczek",
+              "id": "5fe68145-c5d0-4fce-a378-2a4e8793ed15",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/lista-podteczek?stanowisko_id=stanowi_ds_wymia_podat_i_opla_wiejsk_1&symbol_podteczki=Fn&rok=2026",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-podteczek"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "jrwa",
+                      "value": "",
+                      "description": "JRWA",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_podteczki",
+                      "value": "Fn",
+                      "description": "Symbol podteczki"
+                    },
+                    {
+                      "key": "rok",
+                      "value": "2026",
+                      "description": "Rok podteczki"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-wszystkich-podteczek",
+              "id": "9a438950-ab76-4851-99fc-a1bd1563208c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/lista-wszystkich-podteczek?jrwa=3121&symbol_podteczki=Fn&wszystkie_stanowiska=1&rok=2022",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-wszystkich-podteczek"
+                  ],
+                  "query": [
+                    {
+                      "key": "jrwa",
+                      "value": "3121",
+                      "description": "JRWA"
+                    },
+                    {
+                      "key": "symbol_podteczki",
+                      "value": "Fn",
+                      "description": "Symbol podteczki"
+                    },
+                    {
+                      "key": "wszystkie_stanowiska",
+                      "value": "1",
+                      "description": "Jeżeli wartość parametru =1 to system zwróci wszystkie podteczki dla określonego JRWA/symbolu dla wszystkich stanowisk a nie tylko stanowiska zalogowanego w API użytkownika"
+                    },
+                    {
+                      "key": "rok",
+                      "value": "2022",
+                      "description": "Rok podteczki"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-w-sprawie",
+              "id": "88ac23e8-1f67-47ce-a20a-3459f921c2b4",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/lista-dokumentow-w-sprawie?stanowisko_id=wojt_2&sprawa_id=3&czy_szczegoly_interesantow&czy_tresc_zalacznikow",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-dokumentow-w-sprawie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "3",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": null,
+                      "description": "Czy pobrać informacje o interesantach. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": null,
+                      "description": "Czy pobrać informacje o załącznikach. Domyślnie: true."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-zalacznikow-w-dokumencie",
+              "id": "5d64c1be-a89c-4b35-a5c7-c9a17847b81a",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{pilsudski_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/lista-zalacznikow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=61525",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-zalacznikow-w-dokumencie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "61525",
+                      "description": "(wymagane) ID dokumentu"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-interesantow-w-dokumencie",
+              "id": "e7143152-4e9c-4be7-823c-1e456d464ffa",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/lista-interesantow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=7913",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "lista-interesantow-w-dokumencie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "7913",
+                      "description": "(wymagane) ID dokumentu"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "szczegoly-sprawy",
+              "id": "f19052c1-41ac-4809-9b11-c74ecb37f721",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/szczegoly-sprawy?stanowisko_id=stanowi_ds_wymia_podat_i_opla_wiejsk_1&sprawa_id=9068&czy_lista_dokumentow=true&czy_szczegoly_interesantow=true&czy_tresc_zalacznikow=true",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "szczegoly-sprawy"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "9068",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "czy_lista_dokumentow",
+                      "value": "true",
+                      "description": "Czy pobierać dokumenty. Domyślnie: true"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "true",
+                      "description": "Czy pobierać interesantow. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "true",
+                      "description": "Czy pobierać informacje o załącznikach. Domyślnie: true "
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "szczegoly-dokumentu",
+              "id": "cf0133e3-98c4-4ee4-b0ef-2f8cf63246e2",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/szczegoly-dokumentu?stanowisko_id=wojt_2&dokument_id=7918&czy_szczegoly_interesantow=true&czy_tresc_zalacznikow=true",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "szczegoly-dokumentu"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "7918",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "true",
+                      "description": "Czy pobierać interesantow. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "true",
+                      "description": "Czy pobierać informacje o załącznikach. Domyślnie: true "
+                    },
+                    {
+                      "key": "",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-zalacznik",
+              "id": "b69ffe7a-e49e-420b-af42-59845d8b7d61",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/wez-zalacznik?stanowisko_id={{stanowisko}}&zalacznik_id=84562",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "wez-zalacznik"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanowisko}}",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "zalacznik_id",
+                      "value": "84562",
+                      "description": "(wymagane) ID załącznika"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-interesanta",
+              "id": "c7349c8d-60d0-4c8f-96dd-e0682f8f7c22",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/wez-interesanta?interesant_id=126864",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "wez-interesanta"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "ID stanowiska pracownika",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant_id",
+                      "value": "126864",
+                      "description": "(wymagane) ID interesanta"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-oswiadczenia",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "1f3b4df6-5822-48cd-b75f-8681f37ded5f"
+                  }
+                }
+              ],
+              "id": "ef2380d6-d605-46b7-9f7b-8d70373307db",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/get-oswiadczenia?data_od=2022-11-01&data_do=2022-11-11&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2022-11-01",
+                      "description": "(wymagane) data początkowa okresu"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2022-11-11",
+                      "description": "(wymagane) data końcowa okresu"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1",
+                      "description": "(wymagane) Identyfikator szablonu oświadczeń (domyślnie używany w systemie: OSW_1)"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "potwierdzenia-dostarczenia",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1918d7e6-2112-4229-ab20-c9f58975fd19",
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "bf1e8d55-1d29-4321-8265-1b233c643af1",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{pilsudski_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/potwierdzenia-dostarczenia?dokumenty[0]=16237&shipments=1",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "potwierdzenia-dostarczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "dokumenty[0]",
+                      "value": "16237",
+                      "description": "(wymagane) Typ zmiennej: array (tabela).\nLista identyfikatorów dokumentów w eZD.\nNp. dokument[0][145] dokument[1][178]"
+                    },
+                    {
+                      "key": "shipments",
+                      "value": "1",
+                      "description": "Gdy shipments=1 to zwraca dla danego dokumentu informacje o wszystkich jego przesyłkach"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "radix-lista-formularzy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "5d90138e-c7e6-4255-bace-70cc3f1e66f1"
+                  }
+                }
+              ],
+              "id": "1be1402c-1be2-4c87-8fe1-3fc55a8f9bb4",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/radix-lista-formularzy",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "radix-lista-formularzy"
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "radix-lista-dokumentow",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "36ccdff2-e299-4e58-8a15-cd4f058927a4"
+                  }
+                }
+              ],
+              "id": "5d7e3ae3-97e2-4d3d-bf86-77cac0574a7b",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/radix-lista-dokumentow?data_rejestracji_od=2025-06-26&data_rejestracji_do=2025-06-27&kod_formularza=wyc",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "radix-lista-dokumentow"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_rejestracji_od",
+                      "value": "2025-06-26",
+                      "description": "(wymagane) Data od, której lista pobiera dane, format 2025-06-26"
+                    },
+                    {
+                      "key": "data_rejestracji_do",
+                      "value": "2025-06-27",
+                      "description": "(wymagane) Data do, której lista pobiera dane, format 2025-06-26"
+                    },
+                    {
+                      "key": "kod_formularza",
+                      "value": "wyc",
+                      "description": "(wymagane) Kod formularza RADIX"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "arisco-lista-formularzy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9d5a9f93-3a5b-4663-952f-40f213e1879c",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "536fad58-9684-435d-ae85-82d763bf9e5d",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/arisco-lista-formularzy",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "arisco-lista-formularzy"
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "arisco-lista-dokumentow",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "a484a769-1fd0-4fd9-8355-83206158c61e"
+                  }
+                }
+              ],
+              "id": "c6546cf6-d686-4e93-a8c3-84468d5d1189",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/arisco-lista-dokumentow?data_rejestracji_od=2025-06-26&data_rejestracji_do=2025-06-27&kod_formularza=wyc",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "arisco-lista-dokumentow"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_rejestracji_od",
+                      "value": "2025-06-26",
+                      "description": "(wymagane) Data od, której lista pobiera dane, format 2025-06-26"
+                    },
+                    {
+                      "key": "data_rejestracji_do",
+                      "value": "2025-06-27",
+                      "description": "(wymagane) Data do, której lista pobiera dane, format 2025-06-26"
+                    },
+                    {
+                      "key": "kod_formularza",
+                      "value": "wyc",
+                      "description": "(wymagane) Kod formularza ARISCO"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": []
+            },
+            {
+              "name": "opisy-dokumentu-finansowego",
+              "id": "6cae9e32-a719-4a62-a89e-e2018d4f3c4e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/opisy-dokumentu-finansowego?dokument_id=35345&stanowisko_id=wojt_1",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "opisy-dokumentu-finansowego"
+                  ],
+                  "query": [
+                    {
+                      "key": "dokument_id",
+                      "value": "35345",
+                      "description": "Identyfikator dokumentu"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "af284d2e-f7a3-4da2-a636-462bcb1c10bc",
+          "description": "Czytanie danych"
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "nowa-sprawa",
+              "id": "02db6c27-aeb6-48a7-b35f-4fad1b83c69d",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "",
+                      "description": "Identyfikator podteczki pobranej z metod „lista-wszystkich-podteczek”, „lista-podteczek”. Parametr ma wyższy priorytet niż parametr „symbol_jrwa” i sprawa otrzyma JRWA przypisane do podteczki",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tytul_sprawy",
+                      "value": "testowa",
+                      "description": "(wymagane) Tytuł sprawy"
+                    },
+                    {
+                      "key": "symbol_jrwa",
+                      "value": "0030",
+                      "description": "(wymagane) JRWA"
+                    },
+                    {
+                      "key": "termin_sprawy",
+                      "value": "2025-03-31",
+                      "description": "(wymagane) Data: 2019-02-28 18:20:05"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/nowa-sprawa",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "nowa-sprawa"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "przekaz-sprawe-innemu-pracownikowi",
+              "id": "6f034d84-9c72-4191-a38f-2aa2487869b1",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "f1f0048a2adfee0109e23f756959e0f76a5bf71b"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "sprawa_id",
+                      "value": "10020",
+                      "description": "(wymagane) Identyfikator sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_przekazujace_id",
+                      "value": "wojt_1",
+                      "description": "Identyfikator stanowiska przekazującego. Jeżeli nie zostanie ustawione to nastąpi próba przekazania z bieżącego stanowiska prowadzącego sprawę",
+                      "type": "text"
+                    },
+                    {
+                      "key": "przekazano_do_stanowisko_id",
+                      "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                      "description": "(wymagane) Identyfikator stanowiska, któremu przekazujemy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "przekazano_do_user_id",
+                      "value": "49",
+                      "description": "(wymagane) Identyfikator użytkownika, któremu przekazujemy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "komentarz",
+                      "value": "przekazanie API",
+                      "description": "(wymagane) Komentarz",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/przekaz-sprawe-innemu-pracownikowi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "przekaz-sprawe-innemu-pracownikowi"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "importuj-sprawe",
+              "id": "2e362828-a128-4f24-be83-5321eb558634",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "8339",
+                      "description": "Identyfikator podteczki",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tytul_sprawy",
+                      "value": "test_1",
+                      "description": "(wymagane) Tytuł sprawy"
+                    },
+                    {
+                      "key": "symbol_jrwa",
+                      "value": "0008",
+                      "description": "(wymagane) JRWA"
+                    },
+                    {
+                      "key": "termin_sprawy",
+                      "value": "2019-05-28 18:20:05",
+                      "description": "(wymagane) Data: 2019-02-28 18:20:05"
+                    },
+                    {
+                      "key": "numer_sprawy",
+                      "value": "103",
+                      "description": "(wymagane) Numer sprawy (liczba np. 103)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_sprawy",
+                      "value": "WG.0008.103.2022",
+                      "description": "(wymagane) Symbol sprawy (WG.0008.103.2022)",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/importuj-sprawe",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "importuj-sprawe"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "nowy-dokument-w-sprawie",
+              "id": "0932a4da-46ba-49c0-85bc-c8898580be6b",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_tytul",
+                      "value": "test-5",
+                      "description": "(wymagane) Tytuł dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "9664",
+                      "description": "(wymagane) ID sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "wniosek_o_udostepnienie_danych",
+                      "description": "(wymagane) Typ dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "id_decyzji",
+                      "value": "",
+                      "description": "Identyfikator decyzji",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/nowy-dokument-w-sprawie?stanowisko_id=wojt_1&sprawa_id=10088&dokument_tytul=test api dokument&typ_dokumentu=decyzja",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "nowy-dokument-w-sprawie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "10088"
+                    },
+                    {
+                      "key": "dokument_tytul",
+                      "value": "test api dokument"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "decyzja"
+                    },
+                    {
+                      "key": "id_decyzji",
+                      "value": null,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-zalacznik-do-dokumentu",
+              "id": "d477ff1e-1892-42fe-b86e-f01ebc3487b2",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "skarb_gmin_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "file_mime",
+                      "value": "image/jpeg",
+                      "description": "(wymagane) Typ załącznika w formacie MIME",
+                      "type": "text"
+                    },
+                    {
+                      "key": "file_name",
+                      "value": "test_api_2.jpg",
+                      "description": "(wymagane) Nazwa załącznika",
+                      "type": "text"
+                    },
+                    {
+                      "key": "file_content",
+                      "value": "/9j/4AAQSkZJRgABAQEAYABgAAD/4QBaRXhpZgAATU0AKgAAAAgABQMBAAUAAAABAAAASgMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAAOw1ESAAQAAAABAAAOwwAAAAAAAYagAACxj//bAEMAAgEBAgEBAgICAgICAgIDBQMDAwMDBgQEAwUHBgcHBwYHBwgJCwkICAoIBwcKDQoKCwwMDAwHCQ4PDQwOCwwMDP/bAEMBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIACgAKgMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APVP+CYn7Nnx9/bK+EYh8KfGDUPhR8M/Ceo3NgJNHllgvLq8dVuHLR2zQtcYEsQLzzfKpVUBCkBP+Cmv7OPx0/Yq8ELH4p+LfjD4v/DDxlANKvX1fU5444dQPmTwRm2kuZmyht0nWRSATGyNgH5/Gv2Wv+CpHj79jL9mrXPh74JstGtZta1e51KbWbqJ5rm1aW3t4VEC7gisv2ctucODvHA25Pc/tz/sjftB/C/9lHw340+MXxR1rxBY6/rFpHB4avdZv759Nnms55g8yT4jjmjCSxsqBsbiAxBNf0DLMYZBi3XxEqOHyyi4xpp07ucVGD56bhCVRtKSfPe3N03a9l5DmWf5nGlNutmGLlOTinFNT5ppqpzyjCD5ov3H9nt7qfO/8EVf2lLH9mv9ujRX1YIuleN7V/Cs9w5x9jeeWF4ZPTHnRRIxPCrIzdq/fev5XEt4oGulnkmimhX9yqxZ3yB1BViWBUbdxyAeVAxzkfrz+wp/wXz8K6l4IsfD3xua88PeINOto4l16CylubXVEWNQJJUjDypO/U7UKMTkbB8taeK/CFTGqHEGXLnTjedla8Urxnbd2hpJ9knZa2+Xwcq0a/8AZ04y54vkUfialezird53aS6u129X+lVFea/s4ftf/Dj9rfTNTu/h54mg8RRaNJHHehbae2ktjIGKbo5kR8NsfBxg7W54NelV/O9OrCpFTptNPqtUe3j8vxWBxEsLjaUqdSO8ZRcZLS+qaTWmuvQ/lWnLNKS/3s81+mP/AAVk/bv8M/tD/sP/AAh8Lf2tb6t8QNQh0jxZrq2CqbSwd9NmWWJ2DfJL5txxGASoU7tvAPmv7QX/AAQt+Ofw7+G154mmuvBXidfDtkWltNFvJTetbxBnZsS28QlKKCAN7SFQqKGwqj4ytfGS2HgifRf7H0lriW+ju/7UdZTfRKiSJ9nU+Z5YiYvvb93vLInzYGK/aeJKT8ReGKGF4epxpYmhZTpT9zlg42aptK3KnGKj05VrZpJ/p/CdTKODeN/7dz7EyxWG5pSp1qMvaOVS9063NaabjKUpaXcvh5o3a9p/4KP/ALHCfsUfFXwf4b86eTUdZ8GadreqwvIsi2l+5lhuY43Xho/Nt3ZT6PjnGT5n4Uu/DfiPwJpPheZbLRdYv9dafUfEeoJNLDYWSxIsKIkKPIBve5aUKjltsGANpz3n7Uf/AAUI8b/tZ/HGw+IGv6f4U0/W9N0GTw7HFY6cZLRraQXQYtFcvMDJi7lAbPy4QgBlzV/9mT9nn4x69ocR8G/BCbxK/ik+Xp3iTVPDU15a28bAowje4P8AZ4U8/vZY2ZCMq6Gv0rEzq5Jw9hcJipUYV6EIqlKrUUYqajODdlrLkg17sVefNbTc/MsqlPOM0xGPxXtpU8RKTrqjG7cXONSzlL3IKU4t80m1Dk5nF2s/sL/gid+2loP7N+par8JfG8Oi6YmrrPr+k+KrcRJbX9vFAzuk0oVSyqkMzK8h3q3mRMFZQg+p77/guX+zvZXs0K+JdZuFidkEsWiXOyQA43LlQcHqMgH2r5Y/Zy/4IC+OviO2g6v8a/HEmnWulRx28Hh60kOoXNvZh5Ha1E+/ybZd7swWESp+9Y8Emvt6y/4JQfs8WFnFAnwu0JkhQIpkluJHIAx8zNISx9SSSe9fzLx5io4vMIVsjdOzhF1GozjB1defkhJKUY7PXq3vu/vslpcHYdVpcTyxNWq6klCNKdKbjTVuR1KusZze37v3Uo9G7L6Hr4X/AG8P+CH3h39sL41f8JtoPiyH4dXt7b7NVgttBW7j1K43s32k4ni2yMGw553bQeuSSioyrOMXltV1sHLlbTi7pSTT3TUk016o/M02mpRbTTumm001s01qmZH7IH/BAjwZ+z38Vx4n8aeJYvietnGradp9zozWFva3KyI6zuBcyCbAUqEcbPnJIJC4+/6KKvNs8x2ZzjUxtTm5VZKySil0UYpRXySFy+9Kb1cndttttvq29WwoooryRn//2Q==",
+                      "description": "(wymagane) Zawartość załącznika - base64",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "17216",
+                      "description": "(wymagane) ID dokumentu",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/dodaj-zalacznik-do-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "dodaj-zalacznik-do-dokumentu"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_name",
+                      "value": "arrow_left_3.png",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_content",
+                      "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_mime",
+                      "value": "image/png",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-interesanta-do-dokumentu",
+              "id": "1646d69d-0e2c-47b0-a128-071393e3428f",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{pilsudski_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "18357",
+                      "description": "(wymagane) ID dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[typ]",
+                      "value": "osoba",
+                      "description": "(wymagane) ID typu interesanta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[imie]",
+                      "value": "Enrique",
+                      "description": "(wymagane jeżeli typ to osoba) Imię",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nazwisko]",
+                      "value": "Belmondo",
+                      "description": "(wymagane jeżeli typ to osoba) Nazwisko",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nazwa]",
+                      "value": "UNIWERSYTET EKONOMICZNY WE WROCŁAWIU",
+                      "description": "(wymagane jeżeli typ interesanta: instytucja, podmiot, inne) Nazwa",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nip]",
+                      "value": "8960006997",
+                      "description": "NIP",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[pesel]",
+                      "value": "",
+                      "description": "PESEL",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[regon]",
+                      "value": "000001531",
+                      "description": "REGON",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kraj]",
+                      "value": "Polska",
+                      "description": "Kraj zamieszkania interesanta",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[wojewodztwo]",
+                      "value": "Cataluña",
+                      "description": "Województwo miejsca zamieszkania interesanta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[powiat]",
+                      "value": "Barcelona",
+                      "description": "Powiat miejsca zamieszkania interesanta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[gmina]",
+                      "value": "Barcelona",
+                      "description": "Gmina miejsca zamieszkania interesanta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[ulica]",
+                      "value": "Carrer de Mallorca",
+                      "description": "Ulica",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nr_domu]",
+                      "value": "215",
+                      "description": "Numer domu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nr_mieszkania]",
+                      "value": "",
+                      "description": "Numer mieszkania",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[kod_pocztowy]",
+                      "value": "08008",
+                      "description": "Kod pocztowy, format XX-XXX",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[miasto]",
+                      "value": "Barcelona",
+                      "description": "Miasto",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[kores_kraj]",
+                      "value": "",
+                      "description": "Kraj adresu korespondencyjnego",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_wojewodztwo]",
+                      "value": "",
+                      "description": "Województwo adresu korespondencyjnego",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_powiat]",
+                      "value": "",
+                      "description": "Powiat adresu korespondencyjnego",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_gmina]",
+                      "value": "",
+                      "description": "Gmina adresu korespondencyjnego",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_ulica]",
+                      "value": "",
+                      "description": "Ulica",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_nr_domu]",
+                      "value": "",
+                      "description": "Numer domu",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_nr_mieszkania]",
+                      "value": "",
+                      "description": "Numer mieszkania",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_kod_pocztowy]",
+                      "value": "",
+                      "description": "Kod pocztowy, format XX-XXX",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_miasto]",
+                      "value": "",
+                      "description": "Miasto",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[0]",
+                      "value": "",
+                      "description": "Skrytki ePUAP w formie tablicy [0], [1]...",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/dodaj-interesanta-do-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "dodaj-interesanta-do-dokumentu"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wyslij-dokument",
+              "id": "c68303a3-e031-41ac-a95d-791f133d75d1",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant_id",
+                      "value": "256",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/wyslij-dokument",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "wyslij-dokument"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant_id",
+                      "value": "256",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[0]",
+                      "value": "/tomaszewskaanna/skrytka",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[1]",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ustaw-opis-dokumentu-finansowego",
+              "id": "9bf24f57-94ef-432c-9943-00cc3af82697",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "dokument_id",
+                      "value": "43808",
+                      "type": "text"
+                    },
+                    {
+                      "key": "opis",
+                      "value": "To jest opis z systemu zewnętrzngo \nNp. Niech to będzie RADIX\nA może jednak SOFTRES",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/ustaw-opis-dokumentu-finansowego",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "ustaw-opis-dokumentu-finansowego"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ustaw-dokument-finansowy-status-oplacony",
+              "id": "c5fc2c18-2061-4360-83e8-b0aa58d627cb",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "dokument_id",
+                      "value": "44501",
+                      "type": "text"
+                    },
+                    {
+                      "key": "komentarz",
+                      "value": "Opis dot. zmiany statusu na opłacony",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/sd/ustaw-dokument-finansowy-status-oplacony",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "ustaw-dokument-finansowy-status-oplacony"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "8e3d8dd9-6ed9-4d44-a8ce-9cdf658a7dfc",
+          "description": "Zapisywanie danych"
+        }
+      ],
+      "id": "3c8ba73d-0269-4817-8a3d-5fabdb288899"
+    },
+    {
+      "name": "GEOINFO",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "typ-dokumnetu",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "cba8a698-d2a7-4c8a-bfe2-c1df6fc3225e"
+                  }
+                }
+              ],
+              "id": "eaddf4ba-01e5-4084-84d9-39e3a4f929ed",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/typ-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "typ-dokumentu"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sygnalista-typ-wniosek",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "af28d251-86ea-4b43-8cc4-7c9008fe5058"
+                  }
+                }
+              ],
+              "id": "60d730a8-0cc6-4af3-82cd-db2e8f403bae",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/sd/sygnalista-typ-wniosek",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "sd",
+                    "sygnalista-typ-wniosek"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-przekazanych-na-stanowisko",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// pm.test(\"Kod odpowiedzi\", function () {",
+                      "    // var jsonData = pm.response.json();",
+                      "    // pm.expect(jsonData.code).to.eql(200);",
+                      "// });"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "a6cf16ef-94ee-4f0c-9713-df2c31b1f5dd"
+                  }
+                }
+              ],
+              "id": "decc1002-019c-437c-a0c3-e8e75fe95a94",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-przekazanych-na-stanowisko?stanowisko_id=wojt_12",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-dokumentow-przekazanych-na-stanowisko"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_12",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "symbol_dokumentu",
+                      "value": "92",
+                      "description": "Symbol dokumentu",
+                      "disabled": true
+                    },
+                    {
+                      "key": "tytul_dokumentu",
+                      "value": "qaz",
+                      "description": "Tytuł dokumentu",
+                      "disabled": true
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "wniosek",
+                      "description": "ID typu dokumentu",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_utworzenia_od",
+                      "value": "2022-01-12",
+                      "description": "Data utworzenia w systemie od",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_utworzenia_do",
+                      "value": "2022-01-12",
+                      "description": "Data utworzenia w systemie od",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-spraw",
+              "id": "a316d008-cb90-4349-a837-d131de9cd11b",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-spraw?stanowisko_id=wojt_1",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-spraw"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "jrwa",
+                      "value": "3111",
+                      "description": "(wymagane) JRWA",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_sprawy",
+                      "value": "WG.0008.216.2024",
+                      "description": "Symbol sprawy",
+                      "disabled": true
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "905",
+                      "description": "ID podteczki",
+                      "disabled": true
+                    },
+                    {
+                      "key": "nazwa_interesanta",
+                      "value": "",
+                      "description": "Nazwa interesanta",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_utworzenia_od",
+                      "value": "2024-07-01",
+                      "description": "Data utworzenia sprawy od",
+                      "disabled": true
+                    },
+                    {
+                      "key": "data_utworzenia_do",
+                      "value": "2024-07-04",
+                      "description": "Data utworzenia sprawy do",
+                      "disabled": true
+                    },
+                    {
+                      "key": "ignoruj_status_sprawy",
+                      "value": "0",
+                      "description": "Czy zwracać dane także spraw zakończonych",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-podteczek",
+              "id": "3384b168-e15c-4ed7-a8e9-6fbf1f11b9f1",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-podteczek?stanowisko_id=wojt_1&symbol_komorki=Pi&rok=2022",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-podteczek"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "jrwa",
+                      "value": "",
+                      "description": "JRWA",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_podteczki",
+                      "value": "WG",
+                      "description": "Symbol podteczki",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    },
+                    {
+                      "key": "rok",
+                      "value": "2022",
+                      "description": "Rok podteczki"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-wszystkich-podteczek",
+              "id": "57a2451a-242c-466b-9fbf-9c99973cae4c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-wszystkich-podteczek?rok=2021&wszystkie_stanowiska=1",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-wszystkich-podteczek"
+                  ],
+                  "query": [
+                    {
+                      "key": "jrwa",
+                      "value": "5345",
+                      "description": "JRWA",
+                      "disabled": true
+                    },
+                    {
+                      "key": "symbol_podteczki",
+                      "value": "USC",
+                      "description": "Symbol podteczki",
+                      "disabled": true
+                    },
+                    {
+                      "key": "rok",
+                      "value": "2021",
+                      "description": "Rok podteczki"
+                    },
+                    {
+                      "key": "wszystkie_stanowiska",
+                      "value": "1",
+                      "description": "Jeżeli wartość parametru =1 to system zwróci wszystkie podteczki dla określonego JRWA/symbolu dla wszystkich stanowisk a nie tylko stanowiska zalogowanego w API użytkownika"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-w-sprawie",
+              "id": "bd9f1195-dbc6-47fc-a836-1c57eedc55b0",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-w-sprawie?stanowisko_id=wojt_1&sprawa_id=3&symbol_komorki=Pi&czy_szczegoly_interesantow&czy_tresc_zalacznikow",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-dokumentow-w-sprawie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "3",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": null,
+                      "description": "Czy pobrać informacje o interesantach. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": null,
+                      "description": "Czy pobrać informacje o załącznikach. Domyślnie: true."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-zalacznikow-w-dokumencie",
+              "id": "d3d5ec9b-37d9-48b2-916e-8252bc248d4e",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-zalacznikow-w-dokumencie?stanowisko_id=wojt_1&dokument_id=7913&symbol_komorki=Pi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-zalacznikow-w-dokumencie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "7913",
+                      "description": "(wymagane) ID dokumentu"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-interesantow-w-dokumencie",
+              "id": "084c4123-a163-41a4-a91c-b0138d25883c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-interesantow-w-dokumencie?stanowisko_id=wojt_2&dokument_id=7913&symbol_komorki=Pi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-interesantow-w-dokumencie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "7913",
+                      "description": "(wymagane) ID dokumentu"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "szczegoly-sprawy",
+              "id": "d4b2537f-a70e-4450-a81a-93ee063d5d3f",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/szczegoly-sprawy?stanowisko_id=wojt_2&sprawa_id=2494&czy_lista_dokumentow=true&czy_szczegoly_interesantow=true&czy_szczegoly_interesantow=&czy_tresc_zalacznikow=true&symbol_komorki=Pi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "szczegoly-sprawy"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "2494",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "czy_lista_dokumentow",
+                      "value": "true",
+                      "description": "Czy pobierać dokumenty. Domyślnie: true"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "true",
+                      "description": "Czy pobrać informacje o interesantach. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "",
+                      "description": "Czy pobierać interesantów. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "true",
+                      "description": "Czy pobierać informacje o załącznikach. Domyślnie: true."
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "szczegoly-dokumentu",
+              "id": "72fd5bd2-ebc1-4b43-bdbe-f900b3aa7913",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/szczegoly-dokumentu?stanowisko_id=wojt_1&dokument_id=15249&czy_szczegoly_interesantow=false&czy_tresc_zalacznikow=true&symbol_komorki=Pi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "szczegoly-dokumentu"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "15249",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "czy_szczegoly_interesantow",
+                      "value": "false",
+                      "description": "Czy pobrać informacje o interesantach. Domyślnie: true."
+                    },
+                    {
+                      "key": "czy_tresc_zalacznikow",
+                      "value": "true",
+                      "description": "Czy pobierać informacje o załącznikach. Domyślnie: true."
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-zalacznik",
+              "id": "7037361f-8f47-4348-9881-2f572bb49bb1",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{milosz_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/geoinfo/wez-zalacznik?stanowisko_id={{stanowisko}}&zalacznik_id=84562",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "wez-zalacznik"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanowisko}}",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "zalacznik_id",
+                      "value": "84562",
+                      "description": "(wymagane) ID załącznika"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Fn",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-interesanta",
+              "id": "01cce523-3133-4dd0-aca5-8c58975816dd",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/wez-interesanta?interesant_id=70002",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "wez-interesanta"
+                  ],
+                  "query": [
+                    {
+                      "key": "interesant_id",
+                      "value": "70002",
+                      "description": "(wymagane) ID interesanta"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wez-oswiadczenia",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "414103bb-ab6f-4433-b20b-98cf7d3e5c51"
+                  }
+                }
+              ],
+              "id": "2941e036-8bc3-4b6b-88a0-59f87ab2c53e",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/get-oswiadczenia?data_od=2022-11-01&data_do=2024-11-11&szablon=OSW_1",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "get-oswiadczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_od",
+                      "value": "2022-11-01",
+                      "description": "(wymagane) Data początkowa okresu"
+                    },
+                    {
+                      "key": "data_do",
+                      "value": "2024-11-11",
+                      "description": "(wymagane) Data końcowa okresu"
+                    },
+                    {
+                      "key": "szablon",
+                      "value": "OSW_1",
+                      "description": "(wymagane) Identyfikator szablonu oświadczeń. Domyślne: OSW_1"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": [
+                {
+                  "id": "0a8a160a-8481-4d0d-9ac7-c08749f17821",
+                  "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "ezdtoken",
+                        "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                      "protocol": "https",
+                      "host": [
+                        "ezd-test",
+                        "e-instytucja",
+                        "pl"
+                      ],
+                      "path": [
+                        "api.php",
+                        "api",
+                        "sd",
+                        "get-oswiadczenia"
+                      ],
+                      "query": [
+                        {
+                          "key": "data_od",
+                          "value": "2019-01-01"
+                        },
+                        {
+                          "key": "data_do",
+                          "value": "2019-11-01"
+                        },
+                        {
+                          "key": "szablon",
+                          "value": "OSW_1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-store, no-cache, must-revalidate"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "no-cache"
+                    },
+                    {
+                      "key": "X-Debug-Tag",
+                      "value": "5cc2261123e1d"
+                    },
+                    {
+                      "key": "X-Debug-Duration",
+                      "value": "71"
+                    },
+                    {
+                      "key": "X-Debug-Link",
+                      "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "https://scan-dev.e-instytucja.pl"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=98"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/DominikaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "potwierdzenia-dostarczenia",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"response structure\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "id": "6fcbb058-dec9-4e79-ab83-d4caa278d195"
+                  }
+                }
+              ],
+              "id": "85b45497-21f8-45c3-9c68-d12d00df6799",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/potwierdzenia-dostarczenia?dokumenty[0]=1847&shipments=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "potwierdzenia-dostarczenia"
+                  ],
+                  "query": [
+                    {
+                      "key": "dokumenty[0]",
+                      "value": "1847",
+                      "description": "(wymagane) Typ zmiennej: array (tabela).\nLista identyfikatorów dokumentów w eZD.\nNp. dokument[0][145] dokument[1][178]"
+                    },
+                    {
+                      "key": "shipments",
+                      "value": "0",
+                      "description": "Gdy shipments=1 to zwraca dla danego dokumentu informacje o wszystkich jego przesyłkach"
+                    }
+                  ]
+                },
+                "description": "Pobiera oświadczenia dla osób fizycznych i prawnych"
+              },
+              "response": [
+                {
+                  "id": "07b049dc-f7fe-4125-a3d3-1d43f17d84da",
+                  "name": "wez-oswiadczenia-przyklad-odpowiedzi",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "ezdtoken",
+                        "value": "69b7bf7cd30943855e9e05c4689158fa165f03b6",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://ezd-test.e-instytucja.pl/api.php/api/sd/get-oswiadczenia?data_od=2019-01-01&data_do=2019-11-01&szablon=OSW_1",
+                      "protocol": "https",
+                      "host": [
+                        "ezd-test",
+                        "e-instytucja",
+                        "pl"
+                      ],
+                      "path": [
+                        "api.php",
+                        "api",
+                        "sd",
+                        "get-oswiadczenia"
+                      ],
+                      "query": [
+                        {
+                          "key": "data_od",
+                          "value": "2019-01-01"
+                        },
+                        {
+                          "key": "data_do",
+                          "value": "2019-11-01"
+                        },
+                        {
+                          "key": "szablon",
+                          "value": "OSW_1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Thu, 25 Apr 2019 21:26:41 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-store, no-cache, must-revalidate"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "no-cache"
+                    },
+                    {
+                      "key": "X-Debug-Tag",
+                      "value": "5cc2261123e1d"
+                    },
+                    {
+                      "key": "X-Debug-Duration",
+                      "value": "71"
+                    },
+                    {
+                      "key": "X-Debug-Link",
+                      "value": "/api.php/debug/default/view?tag=5cc2261123e1d"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "PHPSESSID=e50l7iavl2ip81h0h30iqvqkui; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "_identity=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "_csrf=3671b5a4a1a76aeddce42bc27a14b4b3749a4326a6652b2147027293d493e28ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222Vwug8XJ3aHyvmDmLNy05jg9RuqEduO2%22%3B%7D; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "https://scan-dev.e-instytucja.pl"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=98"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"pesel\": {\n            \"75081718111\": {\n                \"typ\": \"zgoda\",\n                \"data\": \"2019-04-25\",\n                \"skrytka\": \"/smyczpiotr/skrytka\",\n                \"dokument_id\": 1829\n            }\n        },\n        \"regon\": {\n            \"670809783\": {\n                \"typ\": \"rezygnacja\",\n                \"data\": \"2019-01-31\",\n                \"skrytka\": \"/EmiliaNowicka991/domyslna\",\n                \"dokument_id\": null\n            }\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "sprawa-statusy",
+              "id": "9ca1f115-a9e8-4250-9311-1fd0b39898a5",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/sprawa-statusy",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "sprawa-statusy"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-epuap",
+              "id": "cff60d34-e811-42ae-b4fe-2a5b3c4b3cc2",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/lista-dokumentow-epuap?limit=1",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "lista-dokumentow-epuap"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1",
+                      "description": "Jeżeli nie podany to przyjmuje wartość 10 Maksymalna wartość 100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1",
+                      "description": "Domyślnie 0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "2024-03-20",
+                      "description": "Filtruje po dacie nadania",
+                      "disabled": true
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "2024-03-20",
+                      "description": "Filtruje po dacie nadania",
+                      "disabled": true
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc",
+                      "description": "Domyślnie: desc\nWartości dopuszczalne: asc lub desc",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "lista-dokumentow-dkp",
+              "id": "132234b7-9f16-4422-baab-85a00fdd1634",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{ezd_url}}api.php/api/geoinfo/lista-dokumentow-dkp?limit=100&offset=0&date_from=2025-05-01&date_to=2025-05-30&date_type=dokument_data_otrzymania&order=desc&show_copies",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}api",
+                    "php"
+                  ],
+                  "path": [
+                    "api",
+                    "geoinfo",
+                    "lista-dokumentow-dkp"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100",
+                      "description": "Jeżeli nie podany to przyjmuje wartość 10 Maksymalna wartość 100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0",
+                      "description": "Domyślnie 0"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "2025-05-01",
+                      "description": "Filtruje po dacie nadania"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "2025-05-30",
+                      "description": "Filtruje po dacie nadania"
+                    },
+                    {
+                      "key": "date_type",
+                      "value": "dokument_data_otrzymania",
+                      "description": "Wskazanie daty, po której następuje filtrowanie. Możliwe wartości: dokument_data_rejestracji / dokument_data_otrzymania"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc",
+                      "description": "Domyślnie: desc\nWartości dopuszczalne: asc lub desc"
+                    },
+                    {
+                      "key": "show_copies",
+                      "value": null,
+                      "description": "Domyślnie: 0 Przekazanie wartości =1 sprawi, że metoda zwróci oprócz oryginałów dokumentów także kopie dokumentów (jeżeli kopia została oznaczona jako widoczna dla systemu zewnętrznego)"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "e5f537f4-9696-4b4c-b6b9-b2aeeb286dce",
+          "description": "Czytanie danych"
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "nowa-sprawa",
+              "id": "58d28fe1-ce97-486f-85cf-4ed0baa92438",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "8339",
+                      "description": "Identyfikator podteczki",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "tytul_sprawy",
+                      "value": "test geoinfo",
+                      "description": "(wymagane) Tytuł sprawy"
+                    },
+                    {
+                      "key": "symbol_jrwa",
+                      "value": "0008",
+                      "description": "(wymagane) JRWA"
+                    },
+                    {
+                      "key": "termin_sprawy",
+                      "value": "2025-12-12 18:20:05",
+                      "description": "(wymagane) Data: 2019-02-28 18:20:05"
+                    },
+                    {
+                      "key": "dodaj_dokument_przychodzacy",
+                      "value": "1",
+                      "description": "Czy po utworzeniu sprawy powiązać z dokumentem przychodzącym DKP",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "18893",
+                      "description": "nie (tak jeżeli dodaj_dokument_przychodzacy=1). Identyfikator dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/nowa-sprawa",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "nowa-sprawa"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "importuj-sprawe",
+              "id": "8f163c5a-f04e-4f1d-8a3f-905f8882c37b",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "8339",
+                      "description": "Identyfuikator podteczki",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "tytul_sprawy",
+                      "value": "test_1",
+                      "description": "(wymagane) Tytuł sprawy"
+                    },
+                    {
+                      "key": "symbol_jrwa",
+                      "value": "0008",
+                      "description": "(wymagane) JRWA"
+                    },
+                    {
+                      "key": "termin_sprawy",
+                      "value": "2019-05-28 18:20:05",
+                      "description": "(wymagane) Data: 2019-02-28 18:20:05"
+                    },
+                    {
+                      "key": "numer_sprawy",
+                      "value": "203",
+                      "description": "(wymagane) Numer sprawy (liczba np. 103)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_sprawy",
+                      "value": "WG.0008.103.2022",
+                      "description": "(wymagane) Symbol sprawy (WG.0008.103.2022)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/importuj-sprawe",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "importuj-sprawe"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "nowy-dokument-w-sprawie",
+              "id": "37870567-88e1-4181-b367-dd63c8869d90",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1"
+                    },
+                    {
+                      "key": "dokument_tytul",
+                      "value": "gt dok 1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "8628",
+                      "type": "text"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "wniosek_o_udostepnienie_danych",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_uwagi",
+                      "value": "to jest uwaga",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_opis",
+                      "value": "to jest opis",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/nowy-dokument-w-sprawie?stanowisko_id=starosta_2&dokument_tytul=test api dokument&sprawa_id=7434&typ_dokumentu=decyzja&dokument_uwagi&dokument_opis&symbol_komorki",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "nowy-dokument-w-sprawie"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "starosta_2",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "dokument_tytul",
+                      "value": "test api dokument",
+                      "description": "(wymagane) Tytuł dokumentu"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "7434",
+                      "description": "(wymagane) ID sprawy"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "decyzja",
+                      "description": "(wymagane) Typ dokumentu"
+                    },
+                    {
+                      "key": "dokument_uwagi",
+                      "value": null,
+                      "description": "Uwagi"
+                    },
+                    {
+                      "key": "dokument_opis",
+                      "value": null,
+                      "description": "Opis "
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": null,
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-dokument-przychodzacy",
+              "id": "01b53303-a08a-416a-8eb9-70807ecbbdca",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) Identyfikator stanowiska tworzącego"
+                    },
+                    {
+                      "key": "dokument_tytul",
+                      "value": "dok geo 3",
+                      "description": "(wymagane) Tytuł dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "typ_dokumentu",
+                      "value": "pismo",
+                      "description": "(wymagane) Na podstawie słownika typów dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "data_wplywu",
+                      "value": "2025-11-28",
+                      "description": "W formacie: Y-m-d",
+                      "type": "text"
+                    },
+                    {
+                      "key": "data_widniejaca_na_pismie",
+                      "value": "2025-11-28",
+                      "description": "W formacie: Y-m-d",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_czas_otrzymania",
+                      "value": "",
+                      "description": "W formacie H:i:s np. 12:12:00",
+                      "type": "text"
+                    },
+                    {
+                      "key": "data_nadania",
+                      "value": "2025-11-28",
+                      "description": "W formacie: Y-m-d",
+                      "type": "text"
+                    },
+                    {
+                      "key": "utworz_sprawe",
+                      "value": "1",
+                      "description": "Gdy podamy wartość 1 to po zapisaniu dokumentu przychodzącego nastąpi automatyczna dekretacja na wskazane w polu „stanowisko_id” stanowisko oraz zostanie utworzona sprawa",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tytul_sprawy",
+                      "value": "testowa sprawa GEO 3",
+                      "description": "(wymagane: nie (tak gdy parametr utworz_sprawe=1)) Tytuł sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_jrwa",
+                      "value": "0000",
+                      "description": "(wymagane: nie (tak gdy parametr utworz_sprawe=1)) Symbol z JRWA np. 0000",
+                      "type": "text"
+                    },
+                    {
+                      "key": "termin_sprawy",
+                      "value": "2025-12-12",
+                      "description": "(wymagane: nie (tak gdy parametr utworz_sprawe=1)) W formacie: Y-m-d",
+                      "type": "text"
+                    },
+                    {
+                      "key": "podteczka_id",
+                      "value": "",
+                      "description": "Identyfikator podteczki z metod pobierających podteczki gdy sprawa ma być dodana do podteczki",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_uwagi",
+                      "value": "uwaga 12",
+                      "description": "Uwagi",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "WG",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-dokument-przychodzacy",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "dodaj-dokument-przychodzacy"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-zalacznik-do-dokumentu",
+              "id": "1c78a96b-0a11-4116-82fb-f3977d86f738",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska pracownika"
+                    },
+                    {
+                      "key": "file_mime",
+                      "value": "application/pdf",
+                      "description": "Typ załącznika. Jeżeli nie zostanie podany to nastąpi próba ustalenia MIME a gdy to się nie powiedzie zostanie zapisana wartość „application/octet-stream”",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_name",
+                      "value": "eInstytucja2024-06-20.log",
+                      "description": "(wymagane) Nazwa załącznika",
+                      "type": "text"
+                    },
+                    {
+                      "key": "file_content",
+                      "value": "sdsdsds",
+                      "description": "(wymagane) Zawartość załącznika - base64",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "15226",
+                      "description": "(wymagane) ID dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-zalacznik-do-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "dodaj-zalacznik-do-dokumentu"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_name",
+                      "value": "arrow_left_3.png",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_content",
+                      "value": "iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEUyMTk4OTU0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEUyMTk4OTY0MTI5MTFFN0E4QkI5NkRFMEJGMjhDMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTIxOTg5MzQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTIxOTg5NDQxMjkxMUU3QThCQjk2REUwQkYyOEMwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PokvwGoAAAG4SURBVHjaYiyfl/mfAQ0wMWABcEEXAx9MwT0XtuDXDhBAjOgWMWG1gImRCVXg3/9/uLUABBAjNtcT9A0/tyCDCJ8YfkVxjhkMbz69wq9o8pZ2DOsAAoigm4R5Rb2YCDn67efX2wgqwuqmxqh+/IpACuqXFeJXBFJA0CSYQqLSD1mKAAKIqAimmm2DxyBQEgUFP3JeI8ugBKcsjPyJC7Dgk5y4uRVioHMWw6J9M1DyJUkGwcCCvdOGWKwJ8ggFAwQQxQmSlYXtEsWu+f3nlx7ToAmXIWRIkX8d1mKNaENABoAyJ7ZijyhDcrzLiTIAryGL9s8A057GgeQb8unbR4beDQ0MFup2BA3CGyYgg7rX1TGwsbBRFjtffnxm2Hhy5WiKpbchTExMbwACjGpVLTUcw8QwSMC/f/9EBo1jqFoljjoGV8Mr07OEIdQ6jiJzWCh1RLJLLpgGgdvPb9DfMeiOOHxtL1GtSKpHE6hLCOqNwRxy8tZhqjiEov4FHxc/Q6JzDoMQrwiYf+LmIYbtZ9cPjGOQHRUPbPDDOrdTtnYyvP74gv4JGNYqwNY/Hi1nRh0zohzDzMT8CgBYaId33V5FYgAAAABJRU5ErkJggg==",
+                      "disabled": true
+                    },
+                    {
+                      "key": "file_mime",
+                      "value": "image/png",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-zarejestrowany-dokument-w-sprawie",
+              "id": "b18fd328-b9b9-4a45-9a58-5820c328ebdf",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) Identyfikator stanowiska"
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "15239",
+                      "description": "(wymagane) Identyfikator dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "sprawa_id",
+                      "value": "8628",
+                      "description": "(wymagane) Identyfikator sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/dodaj-zarejestrowany-dokument-w-sprawie",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "dodaj-zarejestrowany-dokument-w-sprawie"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dodaj-interesanta-do-dokumentu",
+              "id": "eb888db5-9ac7-4aa4-93d1-62de57853a00",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{pilsudski_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "interesant[typ]",
+                      "value": "osoba",
+                      "description": "(wymagane) ID typu interesanta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[imie]",
+                      "value": "Anna",
+                      "description": "(wymagane jeżeli typ to osoba) Imię",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nazwisko]",
+                      "value": "Dymna",
+                      "description": "(wymagane jeżeli typ to osoba) Nazwisko",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[nazwa]",
+                      "value": "Anna Dymna",
+                      "description": "(wymagane jeżeli typ interesanta: instytucja, podmiot, inne) Nazwa",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesan[nip]",
+                      "value": "1549618586",
+                      "description": "NIP",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[pesel]",
+                      "value": "63072624486",
+                      "description": "PESEL",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant[regon]",
+                      "value": "",
+                      "description": "REGON",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[ulica]",
+                      "value": "Jasna",
+                      "description": "Ulica",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nr_domu]",
+                      "value": "1",
+                      "description": "Numer domu",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nr_mieszkania]",
+                      "value": "2",
+                      "description": "Numer mieszkania",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kod_pocztowy]",
+                      "value": "22-100",
+                      "description": "Kod pocztowy, format XX-XXX",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[miasto]",
+                      "value": "Chełm",
+                      "description": "Miasto",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "18357",
+                      "description": "(wymagane) ID dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "wojt_1",
+                      "description": "(wymagane) ID stanowiska",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "WG",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_kraj]",
+                      "value": "",
+                      "description": "Kraj adresu korespondencyjnego\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_wojewodztwo]\n",
+                      "value": "",
+                      "description": "Województwo adresu korespondencyjnego\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_powiat]",
+                      "value": "",
+                      "description": "Powiat adresu korespondencyjnego\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kores_gmina]",
+                      "value": "",
+                      "description": "Gmina adresu korespondencyjnego\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kraj]",
+                      "value": "",
+                      "description": "Kraj zamieszkania interesanta\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[wojewodztwo]",
+                      "value": "",
+                      "description": "Województwo miejsca zamieszkania interesanta\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[powiat]",
+                      "value": "",
+                      "description": "Powiat miejsca zamieszkania interesanta\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[gmina]",
+                      "value": "",
+                      "description": "Gmina miejsca zamieszkania interesanta\n\n",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[interesant_id]",
+                      "value": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{instancja_url}}/api.php/api/geoinfo/dodaj-interesanta-do-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{instancja_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "dodaj-interesanta-do-dokumentu"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[interesant_id]",
+                      "value": "256",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[typ]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[imie]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nazwisko]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nazwa]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nip]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[pesel]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[ulica]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nr_domu]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[nr_mieszkania]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[kod_pocztowy]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant[miasto]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[0]",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[1]",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "wyslij-dokument",
+              "id": "11e03a2e-3cb1-4393-a297-09623157804e",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "interesant_id",
+                      "value": "256",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/wyslij-dokument",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "wyslij-dokument"
+                  ],
+                  "query": [
+                    {
+                      "key": "stanowisko_id",
+                      "value": "{{stanoiwsko_id}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dokument_id",
+                      "value": "1851",
+                      "disabled": true
+                    },
+                    {
+                      "key": "interesant_id",
+                      "value": "256",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[0]",
+                      "value": "/tomaszewskaanna/skrytka",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skrytki[1]",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sprawa-zmien-status",
+              "id": "81e75808-406f-4c7a-a06d-224c314c8f93",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "sprawa_id",
+                      "value": "2501",
+                      "description": "(wymagane) Identyfikator sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "2",
+                      "description": "(wymagane) Identyfikator sprawy (istnieje metoda do pobierania wszystkich statusów )",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_id",
+                      "value": "supe_admi_1",
+                      "description": "(wymagane) Identyfikator stanowiska sprawy (metoda zwracająca szczegóły sprawy zwraca informacje o stanowiskach sprawy)",
+                      "type": "text"
+                    },
+                    {
+                      "key": "komentarz",
+                      "value": "zmieniam bo tak",
+                      "description": "Pole tekstowe do dodania opcjonalnego komentarza zapisanego w historii sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "symbol_komorki",
+                      "value": "Pi",
+                      "description": "Symbol komórki na podstawie, której zostanie wybrane stanowisko inne niż podane w parametrze stanowisko_id",
+                      "type": "text"
+                    },
+                    {
+                      "key": "bez_weryfikacji nie",
+                      "value": "",
+                      "description": "Jeżeli wartość =1 to system nie będzie weryfikował stanowiska i po prostu zmieni status sprawy i doda do historii sprawy wpis, że zmiana status została wymuszona przez zewnętrzny system dziedzinowy",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/sprawa-zmien-status",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "sprawa-zmien-status"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sprawa-zmien-termin",
+              "id": "d205f29a-e0a1-414f-9e7d-501e211d1dd1",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "sprawa_id",
+                      "value": "8771",
+                      "description": "(wymagane) Identyfikator sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "termin",
+                      "value": "2025-12-12",
+                      "description": "(wymagane) Termin sprawy z formacie 2025-12-01",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/sprawa-zmien-termin",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "sprawa-zmien-termin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "potwierdz-pobranie-dokumentu",
+              "id": "a0910ccd-f041-4078-abed-1ebb2aa8e837",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "dokument_id",
+                      "value": "18263",
+                      "description": "(wymagane) Identyfikator dokumentu",
+                      "type": "text"
+                    },
+                    {
+                      "key": "typ",
+                      "value": "epuap",
+                      "description": "Jeżeli chcemy potwierdzić pobranie dokumentu epuap to podajemy wartość „epuap”",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/potwierdz-pobranie-dokumentu",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "potwierdz-pobranie-dokumentu"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "przekaz-sprawe-innemu-pracownikowi",
+              "id": "7b56424a-4407-449d-b279-0c24636fc638",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ezdtoken",
+                    "value": "{{ezdtoken}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "sprawa_id",
+                      "value": "10097",
+                      "description": "(wymagane) Identyfikator sprawy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "stanowisko_przekazujace_id",
+                      "value": "",
+                      "description": "Identyfikator stanowiska przekazującego. Jeżeli nie zostanie ustawione to nastąpi próba przekazania z bieżącego stanowiska prowadzącego sprawę",
+                      "type": "text"
+                    },
+                    {
+                      "key": "przekazano_do_stanowisko_id",
+                      "value": "stanowi_ds_wymia_podat_i_opla_wiejsk_1",
+                      "description": "(wymagane) Identyfikator stanowiska, któremu przekazujemy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "przekazano_do_user_id",
+                      "value": "49",
+                      "description": "(wymagane) Identyfikator użytkownika, któremu przekazujemy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "komentarz",
+                      "value": "przekazanie API",
+                      "description": "(wymagane) Komentarz",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{ezd_url}}/api.php/api/geoinfo/przekaz-sprawe-innemu-pracownikowi",
+                  "protocol": "https",
+                  "host": [
+                    "{{ezd_url}}"
+                  ],
+                  "path": [
+                    "api.php",
+                    "api",
+                    "geoinfo",
+                    "przekaz-sprawe-innemu-pracownikowi"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "42ce2d0c-0420-458a-a9f3-8bd60db3dba8",
+          "description": "Zapisywanie danych"
+        }
+      ],
+      "id": "737355a9-17a5-469d-8daa-a4b02a4fa4ba"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ],
+        "id": "29bf13af-c164-46bc-b6b8-fa0e0d3906aa"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ],
+        "id": "d867ec56-8cf3-4731-b409-a0466a8bef49"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "dacf495f-5c88-415b-8217-e256e2a3496b",
+      "key": "ezdtoken",
+      "value": "c309bb92979f23061e6423ec5810d140a3d760c5"
+    },
+    {
+      "id": "0fabc3b1-0ebc-413d-b9a4-0ab034a6efa3",
+      "key": "ezd_url",
+      "value": "gtatara.dev.ezd"
+    },
+    {
+      "id": "f2752835-3b1e-4464-bc54-4e81238f5457",
+      "key": "ezdapitoken",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "e35d31ce-22a2-4281-8a36-ca9fd290c439",
+    "name": "Multi_eZD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "update_seetings",
+      "id": "f8c645ad-575e-4b9d-a9b0-0fbe6d6908f8",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "ezd-api-token",
+            "value": "{{ezd_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "login",
+              "value": "ezd@olcom.pl",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "1234",
+              "type": "text"
+            },
+            {
+              "key": "update-connections",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "url",
+              "value": "https://mezdapi.dev.ezd",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{instancja_url}}/api.php/api/env/multiezd-set-settings",
+          "protocol": "https",
+          "host": [
+            "{{instancja_url}}"
+          ],
+          "path": [
+            "api.php",
+            "api",
+            "env",
+            "multiezd-set-settings"
+          ],
+          "query": [
+            {
+              "key": "login",
+              "value": "ezd@olcom.pl",
+              "disabled": true
+            },
+            {
+              "key": "password",
+              "value": "1234",
+              "disabled": true
+            },
+            {
+              "key": "update-connection",
+              "value": "1",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
